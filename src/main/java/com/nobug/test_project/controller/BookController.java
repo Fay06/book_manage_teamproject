@@ -25,6 +25,6 @@ public class BookController {
         return bookService.searchBook(bookName);
     }
 
-    @GetMapping("searchC/{category}")
+    @GetMapping("searchCategory/{category}")
     public List<Book> searchCategory(@PathVariable("category") String category) { return bookService.searchCategory(category); }
 }
