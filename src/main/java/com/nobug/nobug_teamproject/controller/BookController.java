@@ -30,5 +30,5 @@ public class BookController {
     public void deleteBookId(@PathVariable("bookID") int bookID) { bookService.deleteBookId(bookID); }
 
     @GetMapping("addBook/{bookName}/{category}")
-    public Book addBook(@PathVariable("bookName") String bookName, @PathVariable("category") String category) { return bookService.addBook(bookName, category); }
+    public void addBook(@PathVariable("bookName") String bookName, @PathVariable("category") String category) { bookService.addBook(bookName, category); }
 }

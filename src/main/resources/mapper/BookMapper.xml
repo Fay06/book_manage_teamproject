@@ -13,7 +13,7 @@
     <select id="deleteBookId" parameterType="int">
         DELETE FROM Book WHERE bookID = #{bookID}
     </select>
-    <select id="addBook" parameterType="String" resultType="com.nobug.nobug_teamproject.models.Book">
-        INSERT INTO Book (bookName, category) VALUES (bookName, category)
+    <select id="addBook" parameterType="String">
+        INSERT INTO Book (bookID, bookName, category) VALUES (50, #{bookName}, #{category})
     </select>
 </mapper>
