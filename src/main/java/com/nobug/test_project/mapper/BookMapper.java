@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface BookMapper {
     Book searchBook(String bookName);
+    Book searchCategory(String category);
 }
