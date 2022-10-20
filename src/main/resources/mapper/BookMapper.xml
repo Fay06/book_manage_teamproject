@@ -10,4 +10,7 @@
     <select id="getBookId" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Book">
         SELECT * FROM Book WHERE bookID = #{bookID}
     </select>
+    <select id="deleteBookId" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Book">
+        DELETE FROM Rating WHERE bookID = #{bookID}
+    </select>
 </mapper>

@@ -25,4 +25,7 @@ public class BookController {
 
     @GetMapping("getBookId/{bookID}")
     public Book getBookId(@PathVariable("bookID") int bookID) { return bookService.getBookId(bookID); }
+
+    @GetMapping("deleteBookId/{bookID}")
+    public void deleteBookId(@PathVariable("bookID") int bookID) { bookService.deleteBookId(bookID); }
 }
