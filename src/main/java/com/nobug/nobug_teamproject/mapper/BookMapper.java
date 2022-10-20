@@ -9,4 +9,5 @@ import java.util.List;
 public interface BookMapper {
     Book searchBook(String bookName);
     List<Book> searchCategory(String category);
+    Book getBookId(int bookID);
 }

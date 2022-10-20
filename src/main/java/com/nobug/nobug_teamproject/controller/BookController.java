@@ -15,11 +15,6 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-//    @RequestMapping("/helloworld")
-//    public String helloWorld(){
-//        return "Hello World!";
-//    }
-
     @GetMapping ("/search/{bookName}")
     public Book searchBook(@PathVariable("bookName") String bookName){
         return bookService.searchBook(bookName);
@@ -27,4 +22,7 @@ public class BookController {
 
     @GetMapping("searchCategory/{category}")
     public List<Book> searchCategory(@PathVariable("category") String category) { return bookService.searchCategory(category); }
+
+    @GetMapping("getBookId/{bookID}")
+    public Book getBookId(@PathVariable("bookID") int bookID) { return bookService.getBookId(bookID); }
 }

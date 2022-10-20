@@ -7,4 +7,7 @@
     <select id="searchCategory" parameterType="String" resultType="com.nobug.nobug_teamproject.models.Book">
         SELECT * FROM Book WHERE category = #{category}
     </select>
+    <select id="getBookId" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Book">
+        SELECT * FROM Book WHERE bookID = #{bookID}
+    </select>
 </mapper>

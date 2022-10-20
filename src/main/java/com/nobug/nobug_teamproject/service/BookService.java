@@ -15,5 +15,10 @@ public class BookService {
     public Book searchBook(String bookName){
         return bookMapper.searchBook(bookName);
     }
-    public List<Book> searchCategory(String category) { return bookMapper.searchCategory(category); }
+    public List<Book> searchCategory(String category) {
+        return bookMapper.searchCategory(category);
+    }
+    public Book getBookId(int bookID){
+        return bookMapper.getBookId(bookID);
+    }
 }
