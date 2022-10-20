@@ -4,17 +4,17 @@ localhost:8081
 
 /search/{bookName}
 
-searchCategory/{category}
+/searchCategory/{category}
 
-getBookId/{bookID}
+/getBookId/{bookID}
 
-deleteBookId/{bookID}
+/deleteBookId/{bookID}
 
-addBook/{bookName}/{category}
+/addBook/{bookName}/{category}
 
-updateBookName/{bookID}/{bookName}
+/updateBookName/{bookID}/{bookName}
 
-updateCategory/{bookID}/{category}
+/updateCategory/{bookID}/{category}
 
 /searchRating/{bookID}
 
