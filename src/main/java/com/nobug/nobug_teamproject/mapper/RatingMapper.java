@@ -1,6 +1,6 @@
-package com.nobug.test_project.mapper;
+package com.nobug.nobug_teamproject.mapper;
 
-import com.nobug.test_project.models.Rating;
+import com.nobug.nobug_teamproject.models.Rating;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

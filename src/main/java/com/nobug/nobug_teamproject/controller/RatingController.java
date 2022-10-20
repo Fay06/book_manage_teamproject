@@ -1,8 +1,8 @@
-package com.nobug.test_project.controller;
+package com.nobug.nobug_teamproject.controller;
 
-import com.nobug.test_project.models.Book;
-import com.nobug.test_project.models.Rating;
-import com.nobug.test_project.service.RatingService;
+import com.nobug.nobug_teamproject.models.Book;
+import com.nobug.nobug_teamproject.models.Rating;
+import com.nobug.nobug_teamproject.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

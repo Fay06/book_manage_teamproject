@@ -1,4 +1,4 @@
-package com.nobug.test_project.models;
+package com.nobug.nobug_teamproject.models;
 
 public class Rating {
     private String ratingID;

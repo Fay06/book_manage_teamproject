@@ -1,7 +1,7 @@
-package com.nobug.test_project.service;
+package com.nobug.nobug_teamproject.service;
 
-import com.nobug.test_project.mapper.RatingMapper;
-import com.nobug.test_project.models.Rating;
+import com.nobug.nobug_teamproject.mapper.RatingMapper;
+import com.nobug.nobug_teamproject.models.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +18,5 @@ public class RatingService {
 
     public void addRating(int bookID, int rating) {
         ratingMapper.addRating(bookID, rating);
-    }Rating
+    }
 }
