@@ -4,4 +4,7 @@
     <select id="searchBook" parameterType="String" resultType="com.nobug.test_project.models.Book">
         SELECT * FROM Book WHERE bookName = #{bookName}
     </select>
+    <select id="searchCategory" parameterType="String" resultType="com.nobug.test_project.models.Book">
+        SELECT * FROM Book WHERE category = #{category}
+    </select>
 </mapper>
