@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MAPPER 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nobug.test_project.mapper.BookMapper">
-    <select id="searchBook" parameterType="String" resultType="com.nobug.test_project.models.Book">
+<mapper namespace="com.nobug.nobug_teamproject.mapper.BookMapper">
+    <select id="searchBook" parameterType="String" resultType="com.nobug.nobug_teamproject.models.Book">
         SELECT * FROM Book WHERE bookName = #{bookName}
     </select>
-    <select id="searchCategory" parameterType="String" resultType="com.nobug.test_project.models.Book">
+    <select id="searchCategory" parameterType="String" resultType="com.nobug.nobug_teamproject.models.Book">
         SELECT * FROM Book WHERE category = #{category}
     </select>
 </mapper>

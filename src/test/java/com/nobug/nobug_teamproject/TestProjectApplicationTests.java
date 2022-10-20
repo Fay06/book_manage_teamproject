@@ -1,4 +1,4 @@
-package com.nobug.test_project;
+package com.nobug.nobug_teamproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

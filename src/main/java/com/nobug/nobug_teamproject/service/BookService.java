@@ -1,7 +1,7 @@
-package com.nobug.test_project.service;
+package com.nobug.nobug_teamproject.service;
 
-import com.nobug.test_project.mapper.BookMapper;
-import com.nobug.test_project.models.Book;
+import com.nobug.nobug_teamproject.mapper.BookMapper;
+import com.nobug.nobug_teamproject.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

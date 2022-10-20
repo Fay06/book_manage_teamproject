@@ -1,4 +1,4 @@
-package com.nobug.test_project;
+package com.nobug.nobug_teamproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
