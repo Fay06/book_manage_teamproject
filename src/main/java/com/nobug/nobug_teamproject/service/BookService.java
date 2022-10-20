@@ -28,4 +28,10 @@ public class BookService {
     public void addBook(String bookName, String category){
         bookMapper.addBook(bookName, category);
     }
+    public void updateBookName(int bookID, String bookName){
+        bookMapper.updateBookName(bookID, bookName);
+    }
+    public void updateCategory(int bookID, String category){
+        bookMapper.updateCategory(bookID, category);
+    }
 }

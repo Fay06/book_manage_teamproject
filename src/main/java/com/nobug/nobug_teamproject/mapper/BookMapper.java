@@ -12,4 +12,6 @@ public interface BookMapper {
     Book getBookId(int bookID);
     void deleteBookId(int bookID);
     void addBook(String bookName, String category);
+    void updateBookName(int bookID, String bookName);
+    void updateCategory(int bookID, String category);
 }

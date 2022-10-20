@@ -31,4 +31,10 @@ public class BookController {
 
     @GetMapping("addBook/{bookName}/{category}")
     public void addBook(@PathVariable("bookName") String bookName, @PathVariable("category") String category) { bookService.addBook(bookName, category); }
+
+    @GetMapping("updateBookName/{bookID}/{bookName}")
+    public void updateBookName(@PathVariable("bookID") int bookID, @PathVariable("bookName") String bookName) { bookService.updateBookName(bookID, bookName); }
+
+    @GetMapping("updateCategory/{bookID}/{category}")
+    public void updateCategory(@PathVariable("bookID") int bookID, @PathVariable("category") String category) { bookService.updateCategory(bookID, category); }
 }

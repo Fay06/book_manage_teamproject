@@ -13,7 +13,13 @@
     <select id="deleteBookId" parameterType="int">
         DELETE FROM Book WHERE bookID = #{bookID}
     </select>
-    <select id="addBook" parameterType="String">
-        INSERT INTO Book (bookID, bookName, category) VALUES (50, #{bookName}, #{category})
+    <select id="addBook" parameterType="map">
+        INSERT INTO Book (bookID, bookName, category) VALUES (NULL, #{bookName}, #{category})
+    </select>
+    <select id="updateBookName" parameterType="map">
+        UPDATE Book SET bookName = #{bookName} WHERE bookID = #{bookID}
+    </select>
+    <select id="updateCategory" parameterType="map">
+        UPDATE Book SET category = #{category} WHERE bookID = #{bookID}
     </select>
 </mapper>
