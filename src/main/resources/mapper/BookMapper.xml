@@ -11,9 +11,9 @@
         SELECT * FROM Book WHERE bookID = #{bookID}
     </select>
     <select id="deleteBookId" parameterType="int">
-        DELETE FROM Rating WHERE bookID = #{bookID}
+        DELETE FROM Book WHERE bookID = #{bookID}
     </select>
-    <select id="addBook" parameterType="String">
+    <select id="addBook" parameterType="String" resultType="com.nobug.nobug_teamproject.models.Book">
         INSERT INTO Book (bookName, category) VALUES (bookName, category)
     </select>
 </mapper>
