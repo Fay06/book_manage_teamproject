@@ -19,3 +19,7 @@ localhost:8081
 /searchRating/{bookID}
 
 /addRating/{bookID}/{rating}
+
+/deleteRating/{ratingID}
+
+/updateRating/{ratingID}/{rating}
