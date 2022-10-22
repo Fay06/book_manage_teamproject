@@ -1,39 +1,49 @@
-# nobug Team project
+# Nobug Team Project
 
-localhost:8081
+## 1. Documented API
 
-/search/{bookName}
+#### Sample Request: localhost:8081/...
 
-/searchCategory/{category}
+Book:
 
-/getBookId/{bookID}
+* /search/{bookName}
 
-/deleteBookId/{bookID}
+* /searchCategory/{category}
 
-/addBook/{bookName}/{category}
+* /getBookId/{bookID}
 
-/updateBookName/{bookID}/{bookName}
+* /deleteBookId/{bookID}
 
-/updateCategory/{bookID}/{category}
+* /addBook/{bookName}/{category}
 
-/searchRating/{bookID}
+* /updateBookName/{bookID}/{bookName}
 
-/addRating/{bookID}/{rating}
+* /updateCategory/{bookID}/{category}
 
-/deleteRating/{ratingID}
+Rating:
 
-/updateRating/{ratingID}/{rating}
+* /searchRating/{bookID}
 
-/getBookList/{bookListID}
+* /addRating/{bookID}/{rating}
 
-/deleteBookList/{bookListID}
+* /deleteRating/{ratingID}
 
-/addBookList/{bookListName}
+* /updateRating/{ratingID}/{rating}
 
-/updateBookListName/{bookListID}/{bookListName}
+BookList:
 
-/addBookToBookList/{bookListID}/{bookID}
+* /getBookList/{bookListID}
 
-/removeBookFromBookList/{bookListID}/{bookID}
+* /deleteBookList/{bookListID}
 
-/getBooksFromBookList/{bookListID}
+* /addBookList/{bookListName}
+
+* /updateBookListName/{bookListID}/{bookListName}
+
+* /addBookToBookList/{bookListID}/{bookID}
+
+* /removeBookFromBookList/{bookListID}/{bookID}
+
+* /getBooksFromBookList/{bookListID}
+
+## 2. Build, Run, Test Instructions
