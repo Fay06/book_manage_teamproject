@@ -22,7 +22,6 @@ public class BookService {
         return bookMapper.getBookId(bookID);
     }
     public void deleteBookId(int bookID){
-//        ratingMapper.deleteBookId(bookID);
         bookMapper.deleteBookId(bookID);
     }
     public void addBook(String bookName, String category){
