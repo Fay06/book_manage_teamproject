@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MAPPER 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nobug.nobug_teamproject.mapper.BookListMapper">
+    <select id="getBookList" parameterType="int" resultType="com.nobug.nobug_teamproject.models.BookList">
+        SELECT * FROM BookList WHERE bookListID = #{bookListID}
+    </select>
+    <select id="deleteBookList" parameterType="int">
+        DELETE FROM BookList WHERE bookListID = #{bookListID}
+    </select>
+    <select id="addBookList" parameterType="map">
+        INSERT INTO BookList (bookListID, bookListName) VALUES (NULL, #{bookListName})
+    </select>
+    <select id="updateBookListName" parameterType="map">
+        UPDATE BookList SET bookListName = #{bookListName} WHERE bookListID = #{bookListID}
+    </select>
+    <select id="addBookToBookList" parameterType="map">
+        INSERT INTO BookCollection (bookListID, bookID) VALUES (#{bookListID}, #{bookID})
+    </select>
+    <select id="removeBookFromBookList" parameterType="map">
+        DELETE FROM BookCollection WHERE bookListID = #{bookListID} and bookID = #{bookID}
+    </select>
+    <select id="getBooksFromBookList" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Book">
+        SELECT Book.bookID, bookName, category FROM BookCollection LEFT JOIN Book on Book.bookID = BookCollection.bookID WHERE bookListID = #{bookListID};
+    </select>
+</mapper>
