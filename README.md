@@ -23,3 +23,17 @@ localhost:8081
 /deleteRating/{ratingID}
 
 /updateRating/{ratingID}/{rating}
+
+/getBookList/{bookListID}
+
+/deleteBookList/{bookListID}
+
+/addBookList/{bookListName}
+
+/updateBookListName/{bookListID}/{bookListName}
+
+/addBookToBookList/{bookListID}/{bookID}
+
+/removeBookFromBookList/{bookListID}/{bookID}
+
+/getBooksFromBookList/{bookListID}
