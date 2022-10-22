@@ -48,6 +48,8 @@ BookList:
 
 ## 2. Build, Run, Test Instructions
 
+* Build project in IntelliJ using "Build Project" button
+
 * Run nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/TestProjectApplicationTests.java
 
 * Open browser, and type localhost:8081/... to get the information or make changes on existing table
