@@ -4,47 +4,47 @@
 
 #### Sample Request: localhost:8081/...
 
-Book:
+* Book:
 
-* /search/{bookName}
+  - /search/{bookName}
 
-* /searchCategory/{category}
+  - /searchCategory/{category}
 
-* /getBookId/{bookID}
+  - /getBookId/{bookID}
 
-* /deleteBookId/{bookID}
+  - /deleteBookId/{bookID}
 
-* /addBook/{bookName}/{category}
+  - /addBook/{bookName}/{category}
 
-* /updateBookName/{bookID}/{bookName}
+  - /updateBookName/{bookID}/{bookName}
 
-* /updateCategory/{bookID}/{category}
+  - /updateCategory/{bookID}/{category}
 
-Rating:
+* Rating:
 
-* /searchRating/{bookID}
+  - /searchRating/{bookID}
 
-* /addRating/{bookID}/{rating}
+  - /addRating/{bookID}/{rating}
 
-* /deleteRating/{ratingID}
+  - /deleteRating/{ratingID}
 
-* /updateRating/{ratingID}/{rating}
+  - /updateRating/{ratingID}/{rating}
 
-BookList:
+* BookList:
 
-* /getBookList/{bookListID}
+  - /getBookList/{bookListID}
 
-* /deleteBookList/{bookListID}
+  - /deleteBookList/{bookListID}
 
-* /addBookList/{bookListName}
+  - /addBookList/{bookListName}
 
-* /updateBookListName/{bookListID}/{bookListName}
+  - /updateBookListName/{bookListID}/{bookListName}
 
-* /addBookToBookList/{bookListID}/{bookID}
+  - /addBookToBookList/{bookListID}/{bookID}
 
-* /removeBookFromBookList/{bookListID}/{bookID}
+  - /removeBookFromBookList/{bookListID}/{bookID}
 
-* /getBooksFromBookList/{bookListID}
+  - /getBooksFromBookList/{bookListID}
 
 ## 2. Build, Run, Test Instructions
 
