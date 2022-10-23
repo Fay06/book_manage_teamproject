@@ -2,8 +2,6 @@
 
 ## 1. Documented API
 
-#### Sample Request: localhost:8081/...
-
 * Book:
 
   - /search/{bookName}
