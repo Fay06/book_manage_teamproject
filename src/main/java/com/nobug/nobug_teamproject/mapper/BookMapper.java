@@ -7,9 +7,9 @@ import java.util.List;
 
 @Mapper
 public interface BookMapper {
-    Book searchBook(String bookName);
+    List<Book> searchBook(String bookName);
     List<Book> searchCategory(String category);
-    Book getBookId(int bookID);
+    List<Book> getBookId(int bookID);
     void deleteBookId(int bookID);
     void addBook(String bookName, String category);
     void updateBookName(int bookID, String bookName);

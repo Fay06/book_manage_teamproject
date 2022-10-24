@@ -3,28 +3,42 @@ package com.nobug.nobug_teamproject.controller;
 import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-// import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/book")
 public class BookController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping ("/search/{bookName}")
-    public Book searchBook(@PathVariable("bookName") String bookName){
-        return bookService.searchBook(bookName);
+    @GetMapping("get")
+    public List<Book> getBook(@RequestParam(value = "bookID", required = false) Integer bookID,
+                              @RequestParam(value = "bookName", required = false) String bookName,
+                              @RequestParam(value = "category", required = false) String category){
+        List<Book> result = null;
+        if (bookID != null){
+            result = bookService.getBookId(bookID);
+        } else if (bookName != null){
+            result =  bookService.searchBook(bookName);
+        } else if (category != null){
+            result =  bookService.searchCategory(category);
+        }
+        return result;
     }
 
-    @GetMapping("searchCategory/{category}")
-    public List<Book> searchCategory(@PathVariable("category") String category) { return bookService.searchCategory(category); }
-
-    @GetMapping("getBookId/{bookID}")
-    public Book getBookId(@PathVariable("bookID") int bookID) { return bookService.getBookId(bookID); }
+//    @GetMapping ("/search/{bookName}")
+//    public Book searchBook(@PathVariable("bookName") String bookName){
+//        return bookService.searchBook(bookName);
+//    }
+//
+//    @GetMapping("searchCategory/{category}")
+//    public List<Book> searchCategory(@PathVariable("category") String category) { return bookService.searchCategory(category); }
+//
+//    @GetMapping("get/{bookID}")
+//    public Book getBookId(@PathVariable("bookID") int bookID) { return bookService.getBookId(bookID); }
 
     @GetMapping("deleteBookId/{bookID}")
     public void deleteBookId(@PathVariable("bookID") int bookID) { bookService.deleteBookId(bookID); }

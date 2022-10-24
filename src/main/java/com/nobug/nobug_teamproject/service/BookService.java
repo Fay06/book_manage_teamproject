@@ -12,13 +12,13 @@ public class BookService {
     @Autowired
     private BookMapper bookMapper;
 
-    public Book searchBook(String bookName){
+    public List<Book> searchBook(String bookName){
         return bookMapper.searchBook(bookName);
     }
     public List<Book> searchCategory(String category) {
         return bookMapper.searchCategory(category);
     }
-    public Book getBookId(int bookID){
+    public List<Book> getBookId(int bookID){
         return bookMapper.getBookId(bookID);
     }
     public void deleteBookId(int bookID){
