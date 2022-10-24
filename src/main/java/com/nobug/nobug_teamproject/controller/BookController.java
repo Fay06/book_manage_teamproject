@@ -3,6 +3,8 @@ package com.nobug.nobug_teamproject.controller;
 import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,7 +17,7 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping("get")
-    public List<Book> getBook(@RequestParam(value = "bookID", required = false) Integer bookID,
+    public ResponseEntity<?> getBook(@RequestParam(value = "bookID", required = false) Integer bookID,
                               @RequestParam(value = "bookName", required = false) String bookName,
                               @RequestParam(value = "category", required = false) String category){
         List<Book> result = null;
@@ -26,29 +28,29 @@ public class BookController {
         } else if (category != null){
             result =  bookService.searchCategory(category);
         }
-        return result;
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-//    @GetMapping ("/search/{bookName}")
-//    public Book searchBook(@PathVariable("bookName") String bookName){
-//        return bookService.searchBook(bookName);
-//    }
-//
-//    @GetMapping("searchCategory/{category}")
-//    public List<Book> searchCategory(@PathVariable("category") String category) { return bookService.searchCategory(category); }
-//
-//    @GetMapping("get/{bookID}")
-//    public Book getBookId(@PathVariable("bookID") int bookID) { return bookService.getBookId(bookID); }
+    @DeleteMapping("delete")
+    public ResponseEntity<?> deleteBookId(@RequestParam(value = "bookID", required = true) Integer bookID) {
+        bookService.deleteBookId(bookID);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-    @GetMapping("deleteBookId/{bookID}")
-    public void deleteBookId(@PathVariable("bookID") int bookID) { bookService.deleteBookId(bookID); }
+    @PostMapping("add")
+    public ResponseEntity<?> addBook(@RequestParam(value = "bookName", required = true) String bookName,
+                                     @RequestParam(value = "category", required = true) String category) {
+        bookService.addBook(bookName, category);
+        return new ResponseEntity<>(bookService.searchBook(bookName),HttpStatus.OK);
+    }
 
-    @GetMapping("addBook/{bookName}/{category}")
-    public void addBook(@PathVariable("bookName") String bookName, @PathVariable("category") String category) { bookService.addBook(bookName, category); }
+    @PutMapping("update")
+    public ResponseEntity<?> updateBook(@RequestParam(value = "bookID", required = true) Integer bookID,
+                                        @RequestParam(value = "bookName", required = true) String bookName,
+                                        @RequestParam(value = "category", required = true) String category){
+        bookService.updateBookName(bookID, bookName);
+        bookService.updateCategory(bookID, category);
+        return new ResponseEntity<>(bookService.getBookId(bookID),HttpStatus.OK);
+    }
 
-    @GetMapping("updateBookName/{bookID}/{bookName}")
-    public void updateBookName(@PathVariable("bookID") int bookID, @PathVariable("bookName") String bookName) { bookService.updateBookName(bookID, bookName); }
-
-    @GetMapping("updateCategory/{bookID}/{category}")
-    public void updateCategory(@PathVariable("bookID") int bookID, @PathVariable("category") String category) { bookService.updateCategory(bookID, category); }
 }
