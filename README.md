@@ -1,24 +1,31 @@
 # Nobug Team Project
-
+*(@localhost:8081)*
 ## 1. Documented API
 
-* Book:
+* ___Books___
+  * `GET /book/get`
+    * Sample Request: localhost:8081/book/get?bookID=123
+    * Request Parameters:
+      * `bookID` int(Not necessarily)
+      * `bookName` String(Not necessarily)
+      * `category` String(Not necessarily)
+  * `DELETE /book/delete`
+    * Sample Request: localhost:8081/book/delete?bookID=123
+    * Request Parameters:
+      * `bookID` int(Required)
+  * `POST /book/add`
+    * Sample Request: localhost:8081/book/add?bookName=test&category=test
+    * Request Parameters:
+      * `bookName` String(Required)
+      * `category` String(Required)
+  * `PUT /book/update`
+    * Sample Request: localhost:8081/book/update?bookID=123&bookName=test
+    * Request Parameters:
+      * `bookID` int(Required)
+      * `bookName` String(Not necessarily)
+      * `category` String(Not necessarily)
 
-  - /search/{bookName}
-
-  - /searchCategory/{category}
-
-  - /getBookId/{bookID}
-
-  - /deleteBookId/{bookID}
-
-  - /addBook/{bookName}/{category}
-
-  - /updateBookName/{bookID}/{bookName}
-
-  - /updateCategory/{bookID}/{category}
-
-* Rating:
+* ___Rating___
 
   - /searchRating/{bookID}
 
@@ -28,7 +35,7 @@
 
   - /updateRating/{ratingID}/{rating}
 
-* BookList:
+* ___BookList___
 
   - /getBookList/{bookListID}
 
