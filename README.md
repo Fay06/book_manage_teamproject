@@ -51,3 +51,6 @@
 * Run nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/TestProjectApplicationTests.java
 
 * Open browser, and type localhost:8081/... to get the information or make changes on existing table
+
+* Integration test: test with this address localhost:8081 in Postman
+* Integratio
