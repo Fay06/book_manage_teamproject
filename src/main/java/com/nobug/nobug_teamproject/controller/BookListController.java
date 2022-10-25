@@ -4,35 +4,57 @@ import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.models.BookList;
 import com.nobug.nobug_teamproject.service.BookListService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/booklist")
 public class BookListController {
     @Autowired
     private BookListService bookListService;
 
-    @GetMapping("getBookList/{bookListID}")
-    public BookList getBookList(@PathVariable("bookListID") int bookListID) { return bookListService.getBookList(bookListID); }
+    @GetMapping("get/name")
+    public ResponseEntity<?> getBookList(@RequestParam(value = "bookListID", required = true) Integer bookListID){
+        return new ResponseEntity<>(bookListService.getBookList(bookListID), HttpStatus.OK);
+    }
 
-    @GetMapping("deleteBookList/{bookListID}")
-    public void deleteBookList(@PathVariable("bookListID") int bookListID) { bookListService.deleteBookList(bookListID); }
+    @GetMapping("get/book")
+    public ResponseEntity<?> getBooksFromBookList(@RequestParam(value = "bookListID", required = true) Integer bookListID){
+        return new ResponseEntity<>(bookListService.getBooksFromBookList(bookListID), HttpStatus.OK);
+    }
 
-    @GetMapping("addBookList/{bookListName}")
-    public void addBookList(@PathVariable("bookListName") String bookListName) { bookListService.addBookList(bookListName); }
+    @PostMapping("add")
+    public ResponseEntity<?> add(@RequestParam(value = "bookListName", required = false) String bookListName,
+                                 @RequestParam(value = "bookListID", required = false) Integer bookListID,
+                                 @RequestParam(value = "bookID", required = false) Integer bookID){
+        if (bookListName != null){
+            bookListService.addBookList(bookListName);
+        } else if (bookListID != null && bookID != null) {
+            bookListService.addBookToBookList(bookID, bookListID);
+        }
 
-    @GetMapping("updateBookListName/{bookListID}/{bookListName}")
-    public void updateBookListName(@PathVariable("bookListID") int bookListID, @PathVariable("bookListName") String bookListName) { bookListService.updateBookListName(bookListID, bookListName); }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-    @GetMapping("addBookToBookList/{bookListID}/{bookID}")
-    public void addBookToBookList(@PathVariable("bookListID") int bookListID, @PathVariable("bookID") int bookID) { bookListService.addBookToBookList(bookID, bookListID); }
+    @DeleteMapping("delete")
+    public ResponseEntity<?> delete(@RequestParam(value = "bookListID", required = true) Integer bookListID,
+                                    @RequestParam(value = "bookID", required = false) Integer bookID){
+        if (bookID != null && bookListID != null) {
+            bookListService.removeBookFromBookList(bookID, bookListID);
+        } else if (bookListID != null) {
+            bookListService.deleteBookList(bookListID);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-    @GetMapping("removeBookFromBookList/{bookListID}/{bookID}")
-    public void removeBookFromBookList(@PathVariable("bookListID") int bookListID, @PathVariable("bookID") int bookID) { bookListService.removeBookFromBookList(bookID, bookListID); }
+    @PutMapping("update")
+    public ResponseEntity<?> updateBookListName(@RequestParam(value = "bookListID", required = true) Integer bookListID,
+                                                @RequestParam(value = "bookListName", required = true) String bookListName){
+        bookListService.updateBookListName(bookListID, bookListName);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-    @GetMapping("getBooksFromBookList/{bookListID}")
-    public List<Book> getBooksFromBookList(@PathVariable("bookListID") int bookListID) { return bookListService.getBooksFromBookList(bookListID); }
 }

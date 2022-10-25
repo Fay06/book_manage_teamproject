@@ -13,7 +13,7 @@ public class RatingController {
     private RatingService ratingService;
 
     @GetMapping("get")
-    public ResponseEntity<?> searchRating(@RequestParam(value = "bookID", required = false) Integer bookID){
+    public ResponseEntity<?> searchRating(@RequestParam(value = "bookID", required = true) Integer bookID){
         return new ResponseEntity<>(ratingService.searchRating(bookID), HttpStatus.OK);
     }
 
