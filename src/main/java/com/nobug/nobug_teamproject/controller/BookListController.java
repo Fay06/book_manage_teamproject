@@ -1,14 +1,11 @@
 package com.nobug.nobug_teamproject.controller;
 
-import com.nobug.nobug_teamproject.models.Book;
-import com.nobug.nobug_teamproject.models.BookList;
 import com.nobug.nobug_teamproject.service.BookListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/booklist")

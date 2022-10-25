@@ -3,11 +3,11 @@ package com.nobug.nobug_teamproject.models;
 public class Rating {
     private String ratingID;
     private int bookID;
-    private int rating;
+    private int ratingNum;
 
     public Rating(int bookID, int rating) {
         this.bookID = bookID;
-        this.rating = rating;
+        this.ratingNum = rating;
     }
 
     public String getRatingID() {
@@ -19,11 +19,11 @@ public class Rating {
     }
 
     public int getRating() {
-        return rating;
+        return ratingNum;
     }
 
     public void setRating(int rating) {
-        this.rating = rating;
+        this.ratingNum = rating;
     }
 
     public int getBookID() {
