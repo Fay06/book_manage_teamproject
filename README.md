@@ -83,6 +83,9 @@
   * `mvn install`
 * Run the application
   * `mvn spring-boot:run`
+![1](https://user-images.githubusercontent.com/24384014/197678567-d579117a-01b8-40cb-b14d-f3114a02627e.png)
+![2](https://user-images.githubusercontent.com/24384014/197678585-13d4a115-0f50-4b8c-af20-0b448fe775a0.png)
+![3](https://user-images.githubusercontent.com/24384014/197678589-a6d56228-94f6-4570-bef8-8792bf31dd7e.png)
 
 ## 3. StyleChecker
 
