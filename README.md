@@ -26,14 +26,24 @@
       * `category` String(Not necessarily)
 
 * ___Rating___
-
-  - /searchRating/{bookID}
-
-  - /addRating/{bookID}/{rating}
-
-  - /deleteRating/{ratingID}
-
-  - /updateRating/{ratingID}/{rating}
+  * `GET /rating/get`
+    * Sample Request: localhost:8081/rating/get?bookID=123
+    * Request Parameters:
+      * `bookID` int(Required)
+  * `DELETE /book/delete`
+    * Sample Request: localhost:8081/rating/delete?ratingID=11
+    * Request Parameters:
+      * `ratingID` int(Required)
+  * `POST /book/add`
+    * Sample Request: localhost:8081/rating/add?bookID=123&rating=5
+    * Request Parameters:
+      * `bookID` int(Required)
+      * `rating` int(Required)
+  * `PUT /book/update`
+    * Sample Request: localhost:8081/rating/update?ratingID=11&rating=1
+    * Request Parameters:
+      * `ratingID` int(Required)
+      * `rating` int(Required)
 
 * ___BookList___
 

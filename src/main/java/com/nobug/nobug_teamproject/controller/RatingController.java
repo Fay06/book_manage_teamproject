@@ -2,32 +2,38 @@ package com.nobug.nobug_teamproject.controller;
 
 import com.nobug.nobug_teamproject.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/rating")
 public class RatingController {
     @Autowired
     private RatingService ratingService;
 
-    @GetMapping("/searchRating/{bookID}")
-    public float searchRating(@PathVariable("bookID") int bookID){
-        return ratingService.searchRating(bookID);
+    @GetMapping("get")
+    public ResponseEntity<?> searchRating(@RequestParam(value = "bookID", required = false) Integer bookID){
+        return new ResponseEntity<>(ratingService.searchRating(bookID), HttpStatus.OK);
     }
 
-    @GetMapping("/addRating/{bookID}/{rating}")
-    public void addRating(@PathVariable("bookID") int bookID, @PathVariable("rating") int rating){
+    @PostMapping("add")
+    public ResponseEntity<?> addRating(@RequestParam(value = "bookID", required = true) Integer bookID,
+                          @RequestParam(value = "rating", required = true) Integer rating){
         ratingService.addRating(bookID, rating);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/deleteRating/{ratingID}")
-    public void deleteRating(@PathVariable("ratingID") int ratingID){
+    @DeleteMapping("delete")
+    public ResponseEntity<?> deleteRating(@RequestParam(value = "ratingID", required = true) Integer ratingID){
         ratingService.deleteRating(ratingID);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/updateRating/{ratingID}/{rating}")
-    public void updateRating(@PathVariable("ratingID") int ratingID, @PathVariable("rating") int rating){
+    @PutMapping("update")
+    public ResponseEntity<?> updateRating(@RequestParam(value = "ratingID", required = true) Integer ratingID,
+                             @RequestParam(value = "rating", required = true) Integer rating){
         ratingService.updateRating(ratingID, rating);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
