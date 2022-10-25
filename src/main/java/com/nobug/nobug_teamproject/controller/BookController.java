@@ -17,7 +17,7 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping("get")
-    public ResponseEntity<?> getBook(@RequestParam(value = "bookID", required = false) Integer bookID,
+    public ResponseEntity<Object> getBook(@RequestParam(value = "bookID", required = false) Integer bookID,
                               @RequestParam(value = "bookName", required = false) String bookName,
                               @RequestParam(value = "category", required = false) String category){
         List<Book> result = null;
@@ -32,20 +32,20 @@ public class BookController {
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<?> deleteBookId(@RequestParam(value = "bookID", required = true) Integer bookID) {
+    public ResponseEntity<Object> deleteBookId(@RequestParam(value = "bookID", required = true) Integer bookID) {
         bookService.deleteBookId(bookID);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("add")
-    public ResponseEntity<?> addBook(@RequestParam(value = "bookName", required = true) String bookName,
+    public ResponseEntity<Object> addBook(@RequestParam(value = "bookName", required = true) String bookName,
                                      @RequestParam(value = "category", required = true) String category) {
         bookService.addBook(bookName, category);
         return new ResponseEntity<>(bookService.searchBook(bookName),HttpStatus.OK);
     }
 
     @PutMapping("update")
-    public ResponseEntity<?> updateBook(@RequestParam(value = "bookID", required = true) Integer bookID,
+    public ResponseEntity<Object> updateBook(@RequestParam(value = "bookID", required = true) Integer bookID,
                                         @RequestParam(value = "bookName", required = true) String bookName,
                                         @RequestParam(value = "category", required = true) String category){
         bookService.updateBookName(bookID, bookName);

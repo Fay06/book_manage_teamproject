@@ -14,17 +14,17 @@ public class BookListController {
     private BookListService bookListService;
 
     @GetMapping("get/name")
-    public ResponseEntity<?> getBookList(@RequestParam(value = "bookListID", required = true) Integer bookListID){
+    public ResponseEntity<Object> getBookList(@RequestParam(value = "bookListID", required = true) Integer bookListID){
         return new ResponseEntity<>(bookListService.getBookList(bookListID), HttpStatus.OK);
     }
 
     @GetMapping("get/book")
-    public ResponseEntity<?> getBooksFromBookList(@RequestParam(value = "bookListID", required = true) Integer bookListID){
+    public ResponseEntity<Object> getBooksFromBookList(@RequestParam(value = "bookListID", required = true) Integer bookListID){
         return new ResponseEntity<>(bookListService.getBooksFromBookList(bookListID), HttpStatus.OK);
     }
 
     @PostMapping("add")
-    public ResponseEntity<?> add(@RequestParam(value = "bookListName", required = false) String bookListName,
+    public ResponseEntity<Object> add(@RequestParam(value = "bookListName", required = false) String bookListName,
                                  @RequestParam(value = "bookListID", required = false) Integer bookListID,
                                  @RequestParam(value = "bookID", required = false) Integer bookID){
         if (bookListName != null){
@@ -37,7 +37,7 @@ public class BookListController {
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<?> delete(@RequestParam(value = "bookListID", required = true) Integer bookListID,
+    public ResponseEntity<Object> delete(@RequestParam(value = "bookListID", required = true) Integer bookListID,
                                     @RequestParam(value = "bookID", required = false) Integer bookID){
         if (bookID != null && bookListID != null) {
             bookListService.removeBookFromBookList(bookID, bookListID);
@@ -48,7 +48,7 @@ public class BookListController {
     }
 
     @PutMapping("update")
-    public ResponseEntity<?> updateBookListName(@RequestParam(value = "bookListID", required = true) Integer bookListID,
+    public ResponseEntity<Object> updateBookListName(@RequestParam(value = "bookListID", required = true) Integer bookListID,
                                                 @RequestParam(value = "bookListName", required = true) String bookListName){
         bookListService.updateBookListName(bookListID, bookListName);
         return new ResponseEntity<>(HttpStatus.OK);

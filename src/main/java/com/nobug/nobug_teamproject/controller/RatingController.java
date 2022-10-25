@@ -13,25 +13,25 @@ public class RatingController {
     private RatingService ratingService;
 
     @GetMapping("get")
-    public ResponseEntity<?> searchRating(@RequestParam(value = "bookID", required = true) Integer bookID){
+    public ResponseEntity<Object> searchRating(@RequestParam(value = "bookID", required = true) Integer bookID){
         return new ResponseEntity<>(ratingService.searchRating(bookID), HttpStatus.OK);
     }
 
     @PostMapping("add")
-    public ResponseEntity<?> addRating(@RequestParam(value = "bookID", required = true) Integer bookID,
+    public ResponseEntity<Object> addRating(@RequestParam(value = "bookID", required = true) Integer bookID,
                           @RequestParam(value = "rating", required = true) Integer rating){
         ratingService.addRating(bookID, rating);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<?> deleteRating(@RequestParam(value = "ratingID", required = true) Integer ratingID){
+    public ResponseEntity<Object> deleteRating(@RequestParam(value = "ratingID", required = true) Integer ratingID){
         ratingService.deleteRating(ratingID);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("update")
-    public ResponseEntity<?> updateRating(@RequestParam(value = "ratingID", required = true) Integer ratingID,
+    public ResponseEntity<Object> updateRating(@RequestParam(value = "ratingID", required = true) Integer ratingID,
                              @RequestParam(value = "rating", required = true) Integer rating){
         ratingService.updateRating(ratingID, rating);
         return new ResponseEntity<>(HttpStatus.OK);
