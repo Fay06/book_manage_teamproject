@@ -87,4 +87,4 @@
 ## 3. StyleChecker
 
 * We use SonarLint for style checker, and below are the analysis after running under /src/main
-* <img width="1440" alt="Screen Shot 2022-10-24 at 11 11 18 PM" src="https://user-images.githubusercontent.com/37780284/197673833-b8ccd080-6435-468e-811d-36601ec6bd0b.png">
+<img width="1418" alt="Screen Shot 2022-10-24 at 11 11 18 PM" src="https://user-images.githubusercontent.com/37780284/197674011-8a28f9d8-e296-4ae5-a3c3-8e8624d003ae.png">
