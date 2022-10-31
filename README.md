@@ -1,10 +1,13 @@
 # Nobug Team Project
+
+* Team Member:\
 Yufei Liu yl5099\
 Hongxuan Chen hc3275\
 Chenyue Wang cw3444\
 Chang Gao cg3320
 
 *(We have deployed this application to heroku, link: `https://nobug-teamproject.herokuapp.com/`)*
+
 ## 1. Documented API
 * ___Books___
   * `GET /book/get`
