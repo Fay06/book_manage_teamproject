@@ -69,7 +69,7 @@ Chang Gao cg3320
   * `POST /booklist/add`
     * Sample Request: https://nobug-teamproject.herokuapp.com/booklist/add?bookListID=6&bookID=789
     * Request Parameters:
-      * `bookListID` int(Required)
+      * `bookListID` int(Not necessarily)
       * `bookID` int(Not necessarily)
       * `bookListName` String(Not necessarily)
   * `PUT /booklist/update`
