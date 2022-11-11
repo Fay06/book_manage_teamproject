@@ -1,20 +1,21 @@
 package com.nobug.nobug_teamproject.models;
 
 public class Rating {
-    private String ratingID;
+    private int ratingID;
     private int bookID;
     private int ratingNum;
 
-    public Rating(int bookID, int rating) {
+    public Rating(int ratingID, int bookID, int rating) {
+        this.ratingID = ratingID;
         this.bookID = bookID;
         this.ratingNum = rating;
     }
 
-    public String getRatingID() {
+    public int getRatingID() {
         return ratingID;
     }
 
-    public void setRatingID(String ratingID) {
+    public void setRatingID(int ratingID) {
         this.ratingID = ratingID;
     }
 
