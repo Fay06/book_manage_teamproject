@@ -90,13 +90,15 @@ Chang Gao cg3320
   * `mvn install`
 * Run the application
   * `mvn spring-boot:run`
-![1](https://user-images.githubusercontent.com/24384014/197678567-d579117a-01b8-40cb-b14d-f3114a02627e.png)
-![2](https://user-images.githubusercontent.com/24384014/197678585-13d4a115-0f50-4b8c-af20-0b448fe775a0.png)
-![3](https://user-images.githubusercontent.com/24384014/197678589-a6d56228-94f6-4570-bef8-8792bf31dd7e.png)
 * Run test
-  * JUnit Test: nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller
+  * Unit Test: nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller
+  * System Test: 
+  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678567-d579117a-01b8-40cb-b14d-f3114a02627e.png">
+  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678585-13d4a115-0f50-4b8c-af20-0b448fe775a0.png">
+  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678589-a6d56228-94f6-4570-bef8-8792bf31dd7e.png">
+
 
 ## 3. StyleChecker
 
 * We use SonarLint for style checker, and below are the analysis after running under /src/main
-<img width="1418" alt="Screen Shot 2022-10-24 at 11 11 18 PM" src="https://user-images.githubusercontent.com/37780284/197674011-8a28f9d8-e296-4ae5-a3c3-8e8624d003ae.png">
+<img width="800" alt="Screen Shot 2022-10-24 at 11 11 18 PM" src="https://user-images.githubusercontent.com/37780284/197674011-8a28f9d8-e296-4ae5-a3c3-8e8624d003ae.png">
