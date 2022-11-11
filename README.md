@@ -91,12 +91,16 @@ Chang Gao cg3320
 * Run the application
   * `mvn spring-boot:run`
 * Run test
-  * Unit Test: nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller
+  * Manual Test: 
+    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/ProjectApplicationTests.java 
+  * Unit Test: 
+    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller
+    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/service
   * System Test: 
   <img width="750" src="https://user-images.githubusercontent.com/24384014/197678567-d579117a-01b8-40cb-b14d-f3114a02627e.png">
   <img width="750" src="https://user-images.githubusercontent.com/24384014/197678585-13d4a115-0f50-4b8c-af20-0b448fe775a0.png">
   <img width="750" src="https://user-images.githubusercontent.com/24384014/197678589-a6d56228-94f6-4570-bef8-8792bf31dd7e.png">
-
+  
 
 ## 3. StyleChecker
 
