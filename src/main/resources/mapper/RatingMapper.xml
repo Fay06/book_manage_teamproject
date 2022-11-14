@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.nobug.nobug_teamproject.mapper.RatingMapper">
 
-    <select id="searchRating" parameterType="int" resultType="float">
-        SELECT AVG(rating) FROM Rating GROUP BY bookID HAVING bookID = #{bookID}
+    <select id="searchRating" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Rating">
+        SELECT bookID, AVG(rating) FROM Rating GROUP BY bookID HAVING bookID = #{bookID}
     </select>
 
     <insert id="addRating" parameterType="int">

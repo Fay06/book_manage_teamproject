@@ -5,8 +5,7 @@ public class Rating {
     private int bookID;
     private int ratingNum;
 
-    public Rating(int ratingID, int bookID, int rating) {
-        this.ratingID = ratingID;
+    public Rating(int bookID, int rating) {
         this.bookID = bookID;
         this.ratingNum = rating;
     }
@@ -19,9 +18,7 @@ public class Rating {
         this.ratingID = ratingID;
     }
 
-    public int getRating() {
-        return ratingNum;
-    }
+    public int getRating() { return ratingNum; }
 
     public void setRating(int rating) {
         this.ratingNum = rating;
