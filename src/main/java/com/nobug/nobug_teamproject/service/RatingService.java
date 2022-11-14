@@ -1,6 +1,7 @@
 package com.nobug.nobug_teamproject.service;
 
 import com.nobug.nobug_teamproject.mapper.RatingMapper;
+import com.nobug.nobug_teamproject.models.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ public class RatingService {
     @Autowired
     private RatingMapper ratingMapper;
 
-    public float searchRating(int bookID) {
+    public Rating searchRating(int bookID) {
         return ratingMapper.searchRating(bookID);
     }
 
