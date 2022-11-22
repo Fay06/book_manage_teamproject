@@ -1,6 +1,7 @@
 package com.nobug.nobug_teamproject.service;
 
 import com.nobug.nobug_teamproject.models.Book;
+import com.nobug.nobug_teamproject.models.BookList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,31 +28,60 @@ class BookServiceTest {
 
     @Test
     void searchBook() {
-        List<Book> expectResult = new ArrayList<>();
-        List<Book> searchResult = bookService.searchBook("unit test");
-        assertEquals(expectResult, searchResult);
+        List<Book> books = bookService.searchBook("Leading Innovation");
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (1117 == books.get(i).getBookID()) {
+                found = true;
+            }
+        }
+        assertTrue(found);
     }
 
     @Test
     void searchCategory() {
-        List<Book> expectResult = new ArrayList<>();
-        List<Book> searchResult = bookService.searchCategory("unit test");
-        assertEquals(expectResult, searchResult);
+        List<Book> books = bookService.searchCategory("textbook");
+        boolean found = false;
+        if (books.get(0).getCategory() != null) {
+            found = true;
+        }
+        assertTrue(found);
     }
 
     @Test
     void getBookId() {
-        List<Book> expectResult = new ArrayList<>();
-        List<Book> searchResult = bookService.getBookId(123);
-        assertEquals(expectResult, searchResult);
+        List<Book> books = bookService.getBookId(1117);
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (1117 == books.get(i).getBookID()) {
+                found = true;
+            }
+        }
+        assertTrue(found);
     }
 
     @Test
     void deleteBookId() {
+        bookService.deleteBookId(1117);
+        List<Book> searchResult = bookService.getBookId(1117);
+        List<Book> expectResult = new ArrayList<>();
+        assertEquals(expectResult, searchResult);
     }
 
     @Test
     void addBook() {
+        bookService.addBook("unit test", "unit test");
+        List<Book> books = bookService.searchBook("unit test");
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (books.get(i).getBookName().equals("unit test")) {
+                found = true;
+            }
+        }
+        assertTrue(found);
     }
 
     @Test
