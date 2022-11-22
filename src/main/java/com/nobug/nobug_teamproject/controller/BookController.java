@@ -18,15 +18,40 @@ public class BookController {
 
     @GetMapping("get")
     public ResponseEntity<Object> getBook(@RequestParam(value = "bookID", required = false) Integer bookID,
-                              @RequestParam(value = "bookName", required = false) String bookName,
-                              @RequestParam(value = "category", required = false) String category){
+                                          @RequestParam(value = "bookName", required = false) String bookName,
+                                          @RequestParam(value = "category", required = false) String category,
+                                          @RequestParam(value = "size", required = false) Integer size){
         List<Book> result = null;
+
+        // Check if size parameter is null & is valid
+        if (size == null){
+            size = 20;
+        } else if (size <= 0) {
+            return new ResponseEntity<>("Invalid Parameter: Size", HttpStatus.BAD_REQUEST);
+        }
+
+        // Determine which specific function to use according to the input parameters
         if (bookID != null){
             result = bookService.getBookId(bookID);
+            if (result == null || result.size() == 0){
+                return new ResponseEntity<>("BookID Not Found", HttpStatus.NOT_FOUND);
+            }
         } else if (bookName != null){
             result =  bookService.searchBook(bookName);
+            if (result == null || result.size() == 0){
+                return new ResponseEntity<>("BookName Not Found", HttpStatus.NOT_FOUND);
+            }
+            if (result.size() > size){
+                result = result.subList(0,size);
+            }
         } else if (category != null){
             result =  bookService.searchCategory(category);
+            if (result == null || result.size() == 0){
+                return new ResponseEntity<>("Category Not Found", HttpStatus.NOT_FOUND);
+            }
+            if (result.size() > size){
+                result = result.subList(0,size);
+            }
         }
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
