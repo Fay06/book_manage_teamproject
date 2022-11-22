@@ -12,7 +12,7 @@ public interface BookListMapper {
 
     void deleteBookList(int bookListID);
 
-    void addBookList(String bookListName);
+    void addBookList(BookList booklist);
 
     void updateBookListName(int bookListID, String bookListName);
 

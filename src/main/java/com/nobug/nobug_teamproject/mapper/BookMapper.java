@@ -11,7 +11,7 @@ public interface BookMapper {
     List<Book> searchCategory(String category);
     List<Book> getBookId(int bookID);
     void deleteBookId(int bookID);
-    void addBook(String bookName, String category);
+    void addBook(Book book);
     void updateBookName(int bookID, String bookName);
     void updateCategory(int bookID, String category);
 }

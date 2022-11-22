@@ -24,8 +24,12 @@ public class BookService {
     public void deleteBookId(int bookID){
         bookMapper.deleteBookId(bookID);
     }
-    public void addBook(String bookName, String category){
-        bookMapper.addBook(bookName, category);
+    public int addBook(String bookName, String category){
+        Book book = new Book();
+        book.setBookName(bookName);
+        book.setCategory(category);
+        bookMapper.addBook(book);
+        return book.getBookID();
     }
     public void updateBookName(int bookID, String bookName){
         bookMapper.updateBookName(bookID, bookName);

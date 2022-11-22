@@ -21,8 +21,11 @@ public class BookListService {
         bookListMapper.deleteBookList(bookListID);
     }
 
-    public void addBookList(String bookListName){
-        bookListMapper.addBookList(bookListName);
+    public int addBookList(String bookListName){
+        BookList booklist = new BookList();
+        booklist.setBookListName(bookListName);
+        bookListMapper.addBookList(booklist);
+        return booklist.getBookListID();
     }
 
     public void updateBookListName(int bookListID, String bookListName){

@@ -58,23 +58,32 @@ public class BookController {
 
     @DeleteMapping("delete")
     public ResponseEntity<Object> deleteBookId(@RequestParam(value = "bookID", required = true) Integer bookID) {
-        bookService.deleteBookId(bookID);
-        return new ResponseEntity<>(HttpStatus.OK);
+        List<Book> result = bookService.getBookId(bookID);
+        if (result == null || result.size() == 0){
+            return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
+        } else bookService.deleteBookId(bookID);
+        return new ResponseEntity<>("Book Deleted", HttpStatus.OK);
     }
 
     @PostMapping("add")
     public ResponseEntity<Object> addBook(@RequestParam(value = "bookName", required = true) String bookName,
                                      @RequestParam(value = "category", required = true) String category) {
-        bookService.addBook(bookName, category);
-        return new ResponseEntity<>(bookService.searchBook(bookName),HttpStatus.OK);
+        int bookId = bookService.addBook(bookName, category);
+        String message = "Book Added, Book ID: " + bookId;
+        return new ResponseEntity<>(message,HttpStatus.OK);
     }
 
     @PutMapping("update")
     public ResponseEntity<Object> updateBook(@RequestParam(value = "bookID", required = true) Integer bookID,
                                         @RequestParam(value = "bookName", required = true) String bookName,
                                         @RequestParam(value = "category", required = true) String category){
-        bookService.updateBookName(bookID, bookName);
-        bookService.updateCategory(bookID, category);
+        List<Book> result = bookService.getBookId(bookID);
+        if (result == null || result.size() == 0){
+            return new ResponseEntity<>("Book Not Found", HttpStatus.BAD_REQUEST);
+        } else {
+            bookService.updateBookName(bookID, bookName);
+            bookService.updateCategory(bookID, category);
+        }
         return new ResponseEntity<>(bookService.getBookId(bookID),HttpStatus.OK);
     }
 

@@ -10,6 +10,10 @@ public class BookList {
         this.bookListName = bookListName;
     }
 
+    public BookList() {
+        super();
+    }
+
     public int getBookListID() {
         return bookListID;
     }

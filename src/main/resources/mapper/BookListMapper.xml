@@ -7,9 +7,9 @@
     <select id="deleteBookList" parameterType="int">
         DELETE FROM BookList WHERE bookListID = #{bookListID}
     </select>
-    <select id="addBookList" parameterType="map">
+    <insert id="addBookList" parameterType="map" useGeneratedKeys="true" keyProperty="bookListID">
         INSERT INTO BookList (bookListID, bookListName) VALUES (NULL, #{bookListName})
-    </select>
+    </insert>
     <select id="updateBookListName" parameterType="map">
         UPDATE BookList SET bookListName = #{bookListName} WHERE bookListID = #{bookListID}
     </select>

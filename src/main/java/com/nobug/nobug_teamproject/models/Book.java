@@ -11,6 +11,10 @@ public class Book {
         this.category = category;
     }
 
+    public Book() {
+        super();
+    }
+
     public int getBookID() {
         return bookID;
     }
