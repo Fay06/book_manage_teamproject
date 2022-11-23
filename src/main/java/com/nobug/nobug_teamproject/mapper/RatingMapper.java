@@ -6,7 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface RatingMapper {
     Rating searchRating(int bookID);
-    void addRating(int bookID, int rating);
+    Rating search(int ratingID);
+    void addRating(Rating rating);
     void deleteRating(int ratingID);
     void updateRating(int ratingID, int rating);
 }

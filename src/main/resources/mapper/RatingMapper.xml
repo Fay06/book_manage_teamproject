@@ -6,7 +6,11 @@
         SELECT bookID, AVG(rating) FROM Rating GROUP BY bookID HAVING bookID = #{bookID}
     </select>
 
-    <insert id="addRating" parameterType="int">
+    <select id="search" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Rating">
+        SELECT * FROM Rating WHERE ratingID = #{ratingID}
+    </select>
+
+    <insert id="addRating" parameterType="map" useGeneratedKeys="true" keyProperty="ratingID">
         INSERT INTO Rating(bookID, rating) VALUES (#{bookID} , #{rating})
     </insert>
 

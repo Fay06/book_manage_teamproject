@@ -14,8 +14,16 @@ public class RatingService {
         return ratingMapper.searchRating(bookID);
     }
 
-    public void addRating(int bookID, int rating) {
-        ratingMapper.addRating(bookID, rating);
+    public Rating search(int ratingID) {
+        return ratingMapper.search(ratingID);
+    }
+
+    public int addRating(int bookID, int rating) {
+        Rating rating1 = new Rating();
+        rating1.setBookID(bookID);
+        rating1.setRating(rating);
+        ratingMapper.addRating(rating1);
+        return rating1.getRatingID();
     }
     public void deleteRating(int ratingID) {
         ratingMapper.deleteRating(ratingID);
