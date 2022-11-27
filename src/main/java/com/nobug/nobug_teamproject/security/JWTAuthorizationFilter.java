@@ -18,7 +18,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.nobug.nobug_teamproject.service.ClientService;
+//import com.nobug.nobug_teamproject.service.ClientService;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
@@ -26,8 +26,8 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     private final String PREFIX = "Bearer ";
     private final String SECRET = "315f7653-8c7a-4fc5-ac2b-e10f964b746c";
 
-    @Autowired
-    private ClientService clientService;
+//    @Autowired
+//    private ClientService clientService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
