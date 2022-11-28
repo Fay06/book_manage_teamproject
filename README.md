@@ -80,7 +80,7 @@ Chang Gao cg3320
 
 ## 2. Build, Run, Test Instructions
 
-JDK version : 1.8
+JDK version : OpenJDK 1.8.0
 
 * First clone our GitHub repository
   * `git clone https://github.com/Fay06/nobug_teamproject.git`
