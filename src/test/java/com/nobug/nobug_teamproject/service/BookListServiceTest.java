@@ -42,8 +42,8 @@ class BookListServiceTest {
     @Test
     @Transactional
     void addBookList() {
-        bookListService.addBookList("unit test");
-        String name = bookListService.getBookList(8).getBookListName();
+        int bookListID = bookListService.addBookList("unit test");
+        String name = bookListService.getBookList(bookListID).getBookListName();
         assertEquals("unit test", name);
     }
 
