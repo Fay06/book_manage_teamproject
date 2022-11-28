@@ -1,5 +1,5 @@
 # Nobug Team Project
-*(We have deployed this to heroku, link: `https://nobug-teamproject.herokuapp.com/`)*\
+*(We have deployed this to heroku, link: `https://nobug-teamproject.herokuapp.com/`)*
 
 #### Team Member:
 * Yufei Liu yl5099
