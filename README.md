@@ -1,5 +1,5 @@
 # Nobug Team Project
-*(We have deployed this to heroku, link: `https://nobug-teamproject.herokuapp.com/`)*
+*(We have deployed this to heroku, link: https://nobug-teamproject.herokuapp.com/)*
 
 #### Team Member:
 * Yufei Liu yl5099
@@ -110,5 +110,9 @@ JDK version : OpenJDK 1.8.0
 
 ## 4. Sample Client Page
 
-* We have implemented a sample client page: `https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c`
+* We have implemented a sample client page: https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c
+
+## 5. Continuous Integration
+
+* We used CricleCI: https://github.com/Fay06/nobug_teamproject/tree/circleci-project-setup
 
