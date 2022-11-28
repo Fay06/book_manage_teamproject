@@ -28,8 +28,8 @@ class RatingServiceTest {
 
     @Test
     void searchRating() {
-        double ratingResult = 1.0;
-        Rating searchResult = ratingService.searchRating(2);
+        double ratingResult = 5.0;
+        Rating searchResult = ratingService.searchRating(1025);
         assertEquals(ratingResult, searchResult.getRating());
     }
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.nobug.nobug_teamproject.mapper.RatingMapper">
 
     <select id="searchRating" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Rating">
-        SELECT bookID, AVG(rating) FROM Rating GROUP BY bookID HAVING bookID = #{bookID}
+        SELECT bookID, AVG(rating) AS rating FROM Rating GROUP BY bookID HAVING bookID = #{bookID}
     </select>
 
     <select id="search" parameterType="int" resultType="com.nobug.nobug_teamproject.models.Rating">

@@ -3,9 +3,9 @@ package com.nobug.nobug_teamproject.models;
 public class Rating {
     private int ratingID;
     private int bookID;
-    private int rating;
+    private double rating;
 
-    public Rating(int bookID, int rating) {
+    public Rating(int bookID, double rating) {
         this.bookID = bookID;
         this.rating = rating;
     }
@@ -22,7 +22,9 @@ public class Rating {
         this.ratingID = ratingID;
     }
 
-    public int getRating() { return rating; }
+    public double getRating() {
+        return rating;
+    }
 
     public void setRating(int rating) {
         this.rating = rating;
