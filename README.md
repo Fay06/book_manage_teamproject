@@ -112,3 +112,7 @@ JDK version : OpenJDK 1.8.0
 
 * We have implemented a sample client page: `https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c`
 
+## 5. Continuous integration
+
+* We used CricleCI: https://github.com/Fay06/nobug_teamproject/tree/circleci-project-setup
+
