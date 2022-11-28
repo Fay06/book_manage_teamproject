@@ -18,7 +18,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-//import com.nobug.nobug_teamproject.service.ClientService;
+import com.nobug.nobug_teamproject.service.ClientService;
+import com.nobug.nobug_teamproject.models.Client;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
@@ -26,8 +27,11 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     private final String PREFIX = "Bearer ";
     private final String SECRET = "315f7653-8c7a-4fc5-ac2b-e10f964b746c";
 
-//    @Autowired
-//    private ClientService clientService;
+    private final ClientService clientService;
+
+    public JWTAuthorizationFilter(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
@@ -56,8 +60,20 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             Jws<Claims> claimsJws = jwtParser.setSigningKey(SECRET).parseClaimsJws(token);
             Claims claims = claimsJws.getBody();
             String clientName = claims.get("client").toString();
+            String clientNameTemp = null;
             // Add function HERE
-            if (clientName.equals("fake_client")){
+            System.out.println("clientName");
+            System.out.println(clientName);
+            try {
+                clientNameTemp = clientService.searchClient(clientName).getClientName();
+            } catch (Exception e) {
+                return false;
+            }
+
+            System.out.println("clientNameTemp");
+            System.out.println(clientNameTemp);
+
+            if (clientNameTemp.equals(clientName)) {
                 return true;
             } else return false;
         } catch (Exception e) {
