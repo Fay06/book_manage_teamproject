@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -27,6 +28,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Transactional
     void searchBook() {
         List<Book> books = bookService.searchBook("Leading Innovation");
         boolean found = false;
@@ -40,6 +42,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Transactional
     void searchCategory() {
         List<Book> books = bookService.searchCategory("textbook");
         boolean found = false;
@@ -50,6 +53,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Transactional
     void getBookId() {
         List<Book> books = bookService.getBookId(1117);
         boolean found = false;
@@ -63,6 +67,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Transactional
     void deleteBookId() {
         bookService.deleteBookId(1117);
         List<Book> searchResult = bookService.getBookId(1117);
@@ -71,6 +76,7 @@ class BookServiceTest {
     }
 
     @Test
+    @Transactional
     void addBook() {
         bookService.addBook("unit test", "unit test");
         List<Book> books = bookService.searchBook("unit test");
@@ -85,10 +91,32 @@ class BookServiceTest {
     }
 
     @Test
+    @Transactional
     void updateBookName() {
+        bookService.updateBookName(1117, "unit test");
+        List<Book> books = bookService.getBookId(1117);
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (books.get(i).getBookName().equals("unit test")) {
+                found = true;
+            }
+        }
+        assertTrue(found);
     }
 
     @Test
+    @Transactional
     void updateCategory() {
+        bookService.updateCategory(1117, "unit test");
+        List<Book> books = bookService.getBookId(1117);
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++)
+        {
+            if (books.get(i).getCategory().equals("unit test")) {
+                found = true;
+            }
+        }
+        assertTrue(found);
     }
 }
