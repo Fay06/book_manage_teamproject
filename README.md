@@ -1,12 +1,11 @@
 # Nobug Team Project
+*(We have deployed this to heroku, link: `https://nobug-teamproject.herokuapp.com/`)*
 
-* Team Member:\
-Yufei Liu yl5099\
-Hongxuan Chen hc3275\
-Chenyue Wang cw3444\
-Chang Gao cg3320
-
-*(We have deployed this application to heroku, link: `https://nobug-teamproject.herokuapp.com/`)*
+#### Team Member:
+* Yufei Liu yl5099
+* Hongxuan Chen hc3275
+* Chenyue Wang cw3444
+* Chang Gao cg3320
 
 ## 1. Documented API
 * ___Books___
@@ -80,6 +79,8 @@ Chang Gao cg3320
 
 ## 2. Build, Run, Test Instructions
 
+JDK version : OpenJDK 1.8.0
+
 * First clone our GitHub repository
   * `git clone https://github.com/Fay06/nobug_teamproject.git`
 * Check local maven environment
@@ -106,3 +107,8 @@ Chang Gao cg3320
 
 * We use SonarLint for style checker, and below are the analysis after running under /src/main
 <img width="800" alt="Screen Shot 2022-10-24 at 11 11 18 PM" src="https://user-images.githubusercontent.com/37780284/197674011-8a28f9d8-e296-4ae5-a3c3-8e8624d003ae.png">
+
+## 4. Sample Client Page
+
+* We have implemented a sample client page: `https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c`
+

@@ -1,6 +1,9 @@
 package com.nobug.nobug_teamproject;
 
 import com.nobug.nobug_teamproject.security.JWTAuthorizationFilter;
+import com.nobug.nobug_teamproject.service.ClientService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
@@ -19,11 +22,15 @@ public class ProjectApplication {
     @EnableWebSecurity
     @Configuration
     class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
+        private final ClientService clientService;
+        public WebSecurityConfig(ClientService clientService)
+        {
+            this.clientService = clientService;
+        }
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.csrf().disable()
-                    .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+                    .addFilterAfter(new JWTAuthorizationFilter(clientService), UsernamePasswordAuthenticationFilter.class)
                     .authorizeRequests()
                     .anyRequest().authenticated();
         }
