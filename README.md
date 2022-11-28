@@ -84,7 +84,7 @@ JDK version : OpenJDK 1.8.0
 * First clone our GitHub repository
   * `git clone https://github.com/Fay06/nobug_teamproject.git`
 * Check local maven environment
-  * `mvn -v` (Our Java version is 11, if you have not installed maven, use `sudo apt-get install maven` to install)
+  * `mvn -v` (If you have not installed maven, use `sudo apt-get install maven` to install)
 * Change directory to project folder
   * `cd ./nobug_teamproject`
 * Install dependencies and build
@@ -95,13 +95,11 @@ JDK version : OpenJDK 1.8.0
   * Manual Test: 
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/ProjectApplicationTests.java 
   * Unit Test: 
-    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/service
   * System Test: 
-  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678567-d579117a-01b8-40cb-b14d-f3114a02627e.png">
-  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678585-13d4a115-0f50-4b8c-af20-0b448fe775a0.png">
-  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678589-a6d56228-94f6-4570-bef8-8792bf31dd7e.png">
-  
+    * https://documenter.getpostman.com/view/23968342/2s8YsxvBoe
+  * Integration Test:
+    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller 
 
 ## 3. StyleChecker
 
