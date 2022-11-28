@@ -10,6 +10,12 @@ public class Rating {
         this.rating = rating;
     }
 
+    public Rating(int ratingID, int bookID, double rating) {
+        this.ratingID = ratingID;
+        this.bookID = bookID;
+        this.rating = rating;
+    }
+
     public Rating() {
         super();
     }

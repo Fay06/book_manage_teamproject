@@ -109,11 +109,11 @@ JDK version : OpenJDK 1.8.0
   * Manual Test: 
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/ProjectApplicationTests.java 
   * Unit Test: 
-    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/service
+    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/unit
   * System Test: 
     * https://documenter.getpostman.com/view/23968342/2s8YsxvBoe
   * Integration Test:
-    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller 
+    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/service
 
 ## 3. StyleChecker
 
@@ -122,7 +122,10 @@ JDK version : OpenJDK 1.8.0
 
 ## 4. Sample Client Page
 
-* We have implemented a sample client page: https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c
+* We have implemented three sample client pages: 
+  * valid token: https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c
+  * valid token: https://nobug.retool.com/embedded/public/b0d803f8-e79c-45d3-a801-3e6da43a10ed
+  * invalid token: https://nobug.retool.com/embedded/public/ffcee06e-19cf-41fd-88ef-4d9b757dd291
 
 ## 5. Continuous Integration
 
