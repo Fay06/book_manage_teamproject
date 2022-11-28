@@ -63,4 +63,41 @@ class BookServiceUnitTest {
         assertEquals("mock category", (bookService.getBookId(testBookID)).get(0).getCategory());
     }
 
+    @Test
+    void testDeleteBook() {
+        int testBookID = 1000;
+        Book book = new Book(testBookID, "mock book", "mock category");
+
+        Mockito.doNothing().when(bookMapper).deleteBookId(testBookID);
+
+        bookService.deleteBookId(testBookID);
+
+        Mockito.verify(bookMapper).deleteBookId(testBookID);
+    }
+
+    @Test
+    void testUpdateBookName() {
+        int testBookID = 1000;
+        String bookNewName = "new name";
+        Book book = new Book(testBookID, "mock book", "mock category");
+
+        Mockito.doNothing().when(bookMapper).updateBookName(testBookID, bookNewName);
+
+        bookService.updateBookName(testBookID, bookNewName);
+
+        Mockito.verify(bookMapper).updateBookName(testBookID, bookNewName);
+    }
+
+    @Test
+    void testUpdateBookCategory() {
+        int testBookID = 1000;
+        String bookNewCategory = "new category";
+        Book book = new Book(testBookID, "mock book", "new category");
+
+        Mockito.doNothing().when(bookMapper).updateBookName(testBookID, bookNewCategory);
+
+        bookService.updateBookName(testBookID, bookNewCategory);
+
+        Mockito.verify(bookMapper).updateBookName(testBookID, bookNewCategory);
+    }
 }
