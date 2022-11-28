@@ -70,4 +70,58 @@ class BookListServiceUnitTest {
 
     }
 
+    @Test
+    void testRemoveBookFromBookList() {
+        int testBookListID = 1000;
+        int testBookId = 2222;
+        String testBookListName = "booklist1";
+        String testBookName = "book1";
+        String testBookCategory = "textbook";
+        BookList bookList = new BookList(testBookListID, testBookListName);
+        Book book = new Book(testBookId, testBookName, testBookCategory);
+
+        Mockito.doNothing().when(bookListMapper).removeBookFromBookList(testBookId, testBookListID);
+
+        bookListService.removeBookFromBookList(testBookId, testBookListID);
+
+        Mockito.verify(bookListMapper).removeBookFromBookList(testBookId, testBookListID);
+    }
+
+    @Test
+    void testAddBookToBookList() {
+        int testBookListID = 1000;
+        int testBookId = 2222;
+        String testBookListName = "booklist1";
+        String testBookName = "book1";
+        String testBookCategory = "textbook";
+        BookList bookList = new BookList(testBookListID, testBookListName);
+        Book book = new Book(testBookId, testBookName, testBookCategory);
+
+        Mockito.doNothing().when(bookListMapper).addBookToBookList(testBookId, testBookListID);
+
+        bookListService.addBookToBookList(testBookId, testBookListID);
+
+        Mockito.verify(bookListMapper).addBookToBookList(testBookId, testBookListID);
+    }
+
+    @Test
+    void testGetBooksFromBookList() {
+        int testBookListID = 1000;
+        int testBookId = 2222;
+        String testBookListName = "booklist1";
+        String testBookName = "book1";
+        String testBookCategory = "textbook";
+        BookList bookList = new BookList(testBookListID, testBookListName);
+
+        Book book = new Book(testBookId, testBookName, testBookCategory);
+        List<Book> books = new ArrayList<Book>();
+        books.add(book);
+
+        Mockito.when(bookListMapper.getBooksFromBookList(testBookListID)).thenReturn(books);
+
+        bookListService.getBooksFromBookList(testBookListID).get(0);
+
+        assertEquals(testBookId, bookListService.getBooksFromBookList(testBookListID).get(0).getBookID());
+
+    }
 }
