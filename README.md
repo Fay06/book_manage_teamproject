@@ -8,13 +8,27 @@
 * Chang Gao cg3320
 
 ## 1. Documented API
+* `NOTE: All methods below require authentication token, include token in HEADER(Authorization = "Bearer + Token")`
+  * Invalid token or empty token:
+    * `Authentication Failed` (HTTP Status 403 Forbidden)
 * ___Books___
   * `GET /book/get`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/book/get?bookID=123
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=123'`
     * Request Parameters:
       * `bookID` int(Not necessarily)
       * `bookName` String(Not necessarily)
       * `category` String(Not necessarily)
+    * Responses:
+      * ```
+          {
+              "bookID": 1162,
+              "bookName": "Applied Human Anatomy",
+              "category": "textbook"
+          }
+    * Error Message:
+      * `BookID Not Found` (HTTP Status 404 Not Found)
+      * `BookName Not Found` (HTTP Status 404 Not Found)
+      * `Category Not Found` (HTTP Status 404 Not Found)
   * `DELETE /book/delete`
     * Sample Request: https://nobug-teamproject.herokuapp.com/book/delete?bookID=123
     * Request Parameters:
