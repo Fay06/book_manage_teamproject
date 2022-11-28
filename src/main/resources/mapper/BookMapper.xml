@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MAPPER 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nobug.nobug_teamproject.mapper.BookMapper">
+    <select id="allBook" resultType="com.nobug.nobug_teamproject.models.Book">
+        SELECT * FROM Book
+    </select>
     <select id="searchBook" parameterType="String" resultType="com.nobug.nobug_teamproject.models.Book">
         SELECT * FROM Book WHERE bookName = #{bookName}
     </select>

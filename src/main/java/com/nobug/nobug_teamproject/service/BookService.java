@@ -12,6 +12,9 @@ public class BookService {
     @Autowired
     private BookMapper bookMapper;
 
+    public List<Book> allBook(){
+        return bookMapper.allBook();
+    }
     public List<Book> searchBook(String bookName){
         return bookMapper.searchBook(bookName);
     }

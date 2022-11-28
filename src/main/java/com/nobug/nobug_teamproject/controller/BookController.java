@@ -52,6 +52,11 @@ public class BookController {
             if (result.size() > size){
                 result = result.subList(0,size);
             }
+        }else{
+            result = bookService.allBook();
+            if (result.size() > size){
+                result = result.subList(0,size);
+            }
         }
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
