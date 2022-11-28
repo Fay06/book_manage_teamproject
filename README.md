@@ -1,5 +1,5 @@
 # Nobug Team Project
-*(We have deployed this to heroku, link: `https://nobug-teamproject.herokuapp.com/`)*
+*(We have deployed this to heroku, link: https://nobug-teamproject.herokuapp.com/)*
 
 #### Team Member:
 * Yufei Liu yl5099
@@ -8,13 +8,27 @@
 * Chang Gao cg3320
 
 ## 1. Documented API
+* `NOTE: All methods below require authentication token, include token in HEADER(Authorization = "Bearer + Token")`
+  * Invalid token or empty token:
+    * `Authentication Failed` (HTTP Status 403 Forbidden)
 * ___Books___
   * `GET /book/get`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/book/get?bookID=123
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=123'`
     * Request Parameters:
       * `bookID` int(Not necessarily)
       * `bookName` String(Not necessarily)
       * `category` String(Not necessarily)
+    * Responses:
+      * ```
+          {
+              "bookID": 1162,
+              "bookName": "Applied Human Anatomy",
+              "category": "textbook"
+          }
+    * Error Message:
+      * `BookID Not Found` (HTTP Status 404 Not Found)
+      * `BookName Not Found` (HTTP Status 404 Not Found)
+      * `Category Not Found` (HTTP Status 404 Not Found)
   * `DELETE /book/delete`
     * Sample Request: https://nobug-teamproject.herokuapp.com/book/delete?bookID=123
     * Request Parameters:
@@ -84,7 +98,7 @@ JDK version : OpenJDK 1.8.0
 * First clone our GitHub repository
   * `git clone https://github.com/Fay06/nobug_teamproject.git`
 * Check local maven environment
-  * `mvn -v` (Our Java version is 11, if you have not installed maven, use `sudo apt-get install maven` to install)
+  * `mvn -v` (If you have not installed maven, use `sudo apt-get install maven` to install)
 * Change directory to project folder
   * `cd ./nobug_teamproject`
 * Install dependencies and build
@@ -95,13 +109,11 @@ JDK version : OpenJDK 1.8.0
   * Manual Test: 
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/ProjectApplicationTests.java 
   * Unit Test: 
-    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/service
   * System Test: 
-  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678567-d579117a-01b8-40cb-b14d-f3114a02627e.png">
-  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678585-13d4a115-0f50-4b8c-af20-0b448fe775a0.png">
-  <img width="750" src="https://user-images.githubusercontent.com/24384014/197678589-a6d56228-94f6-4570-bef8-8792bf31dd7e.png">
-  
+    * https://documenter.getpostman.com/view/23968342/2s8YsxvBoe
+  * Integration Test:
+    * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/controller 
 
 ## 3. StyleChecker
 
@@ -110,5 +122,9 @@ JDK version : OpenJDK 1.8.0
 
 ## 4. Sample Client Page
 
-* We have implemented a sample client page: `https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c`
+* We have implemented a sample client page: https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c
+
+## 5. Continuous Integration
+
+* We used CricleCI: https://github.com/Fay06/nobug_teamproject/tree/circleci-project-setup
 
