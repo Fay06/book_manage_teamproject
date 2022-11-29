@@ -252,7 +252,9 @@ JDK version : OpenJDK 1.8.0
 
 ## 5. Continuous Integration
 
-* We used CircleCI: https://github.com/Fay06/nobug_teamproject/tree/circleci-project-setup
+* We used CircleCI: https://app.circleci.com/pipelines/github/Fay06
+* Example report:
+<img width="800" alt="截屏2022-11-28 下午8 58 06" src="https://user-images.githubusercontent.com/37780284/204419707-f9a5c429-1648-40ff-8b01-a5d98d71977f.png">
 
 ## 6. Static Analysis Bug Finder
 * We use SpotBugs for static analysis bug finder, and below are the analysis after running under /src/main
