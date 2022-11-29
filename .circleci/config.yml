@@ -23,9 +23,4 @@ workflows:
           executor: openjdk11
           pre-steps:
             - checkout
-            - run: "ls -la"
-            - run:
-                    name: "test"
-                    command:
-                      ./mvnw test
-  
+            - run: "./mvnw test"
