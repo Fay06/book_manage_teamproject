@@ -27,5 +27,5 @@ workflows:
             - run:
                     name: "test"
                     command:
-                      ./mvnw test
+                      ./mvnw ./src/test/java/com/nobug/nobug_teamproject/unit
   
