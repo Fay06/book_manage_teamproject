@@ -13,7 +13,7 @@
     * `Authentication Failed` (HTTP Status 403 Forbidden)
 * ___Books___
   * `GET /book/get`
-    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=123'`
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=2'`
     * Request Parameters:
       * `bookID` int(Not necessarily)
       * `bookName` String(Not necessarily)
@@ -37,7 +37,7 @@
       * `Category Not Found` (HTTP Status 404 Not Found)
       * `Failed` (HTTP Status 400 Bad Request)
   * `DELETE /book/delete`
-    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/book/delete?bookID=123'`
+    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/book/delete?bookID=2'`
     * Request Parameters:
       * `bookID` int(Required)
     * Instruction:
@@ -57,7 +57,7 @@
     * Error Message:
       * `Failed` (HTTP Status 400 Bad Request)
   * `PUT /book/update`
-    * Sample Request: `curl --location --request PUT 'https://nobug-teamproject.herokuapp.com/book/update?bookID=123&bookName=test'`
+    * Sample Request: `curl --location --request PUT 'https://nobug-teamproject.herokuapp.com/book/update?bookID=2&bookName=test'`
     * Request Parameters:
       * `bookID` int(Required)
       * `bookName` String(Not necessarily)
@@ -78,7 +78,7 @@
 
 * ___Rating___
   * `GET /rating/get`
-    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/rating/get?bookID=123'`
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/rating/get?bookID=2'`
     * Request Parameters:
       * `bookID` int(Required)
     * Instruction:
@@ -89,7 +89,7 @@
       * `Rating Not Found` (HTTP Status 404 Not Found)
       * `Failed` (HTTP Status 400 Bad Request)
   * `DELETE /rating/delete`
-    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/rating/delete?ratingID=11'`
+    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/rating/delete?ratingID=44'`
     * Request Parameters:
       * `ratingID` int(Required)
     * Instruction:
@@ -99,7 +99,7 @@
       * `RatingID Not Found` (HTTP Status 404 Not Found)
       * `Failed` (HTTP Status 400 Bad Request)
   * `POST /rating/add`
-    * Sample Request: `curl --location --request POST 'https://nobug-teamproject.herokuapp.com/rating/add?bookID=123&rating=5'`
+    * Sample Request: `curl --location --request POST 'https://nobug-teamproject.herokuapp.com/rating/add?bookID=2&rating=5'`
     * Request Parameters:
       * `bookID` int(Required)
       * `rating` int(Required)
@@ -110,7 +110,7 @@
       * `Book Not Found` (HTTP Status 404 Not Found)
       * `Failed` (HTTP Status 400 Bad Request)
   * `PUT /rating/update`
-    * Sample Request: `curl --location --request PUT 'https://nobug-teamproject.herokuapp.com/rating/update?ratingID=11&rating=1'`
+    * Sample Request: `curl --location --request PUT 'https://nobug-teamproject.herokuapp.com/rating/update?ratingID=44&rating=1'`
     * Request Parameters:
       * `ratingID` int(Required)
       * `rating` int(Required)
@@ -123,7 +123,7 @@
 
 * ___BookList___
   * `GET /booklist/get/name`
-    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/booklist/get/name?bookListID=2'`
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/booklist/get/name?bookListID=22'`
     * Request Parameters:
       * `bookListID` int(Required)
     * Instruction:
@@ -138,7 +138,7 @@
       * `BookList Not Found` (HTTP Status 404 Not Found)
       * `Failed` (HTTP Status 400 Bad Request)
   * `GET /booklist/get/book`
-    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/booklist/get/book?bookListID=2'`
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/booklist/get/book?bookListID=22'`
     * Request Parameters:
       * `bookListID` int(Required)
     * Instruction:
@@ -162,7 +162,7 @@
       * `BookList Empty` (HTTP Status 200 OK)
       * `Failed` (HTTP Status 400 Bad Request)
   * `DELETE /booklist/delete`
-    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/booklist/delete?bookListID=6&bookID=123'`
+    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/booklist/delete?bookListID=6&bookID=482'`
     * Request Parameters:
       * `bookListID` int(Required)
       * `bookID` int(Not necessarily)
@@ -175,7 +175,7 @@
       * `Book Not Found` (HTTP Status 404 Not Found)
       * `Failed` (HTTP Status 400 Bad Request)
   * `POST /booklist/add`
-    * Sample Request: `curl --location --request POST 'https://nobug-teamproject.herokuapp.com/booklist/add?bookListID=6&bookID=789'`
+    * Sample Request: `curl --location --request POST 'https://nobug-teamproject.herokuapp.com/booklist/add?bookListID=6&bookID=482'`
     * Request Parameters:
       * `bookListID` int(Not necessarily)
       * `bookID` int(Not necessarily)
@@ -228,7 +228,14 @@ JDK version : OpenJDK 1.8.0
   * End-to-end Test:
     * For valid token: 
       * If we input existing book name, book id or book category, we expect the related value {bookID, bookName, category} returned from the database;
-      * If we input non-existing book name, book id or book category, we expect error message.
+        * e.g. localhost:80/book/get?bookID=2
+      * Test a book's rating, and we expect the related value {ratingID, bookID, rating} returned from the database;
+        * e.g. localhost:80/rating/get?bookID=2
+      * Test all books under a booklist, and we expect a list of books returned from the database;
+        * e.g. localhost:80/rating/get?bookID=2get/book?bookListID=6
+      * If we input non-existing booklist id, we expect error message.
+        * e.g. localhost:80/booklist/get/name?bookListID=0
+
     * For invalid token: no matter what we input, we expect "This token is invalid!"
 
 ## 3. StyleChecker
