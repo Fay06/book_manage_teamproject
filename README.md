@@ -238,11 +238,10 @@ JDK version : OpenJDK 1.8.0
 
     * For invalid token: no matter what we input, we expect "This token is invalid!"
 
-## 3. StyleChecker & Static Analysis Bug Finder
+## 3. StyleChecker
 
-* We use SonarLint for style checker and static analysis bug finder, and below are the analysis after running under /src/
+* We use SonarLint for style checker, and below are the analysis after running under /src/
 <img width="800" alt="截屏2022-11-28 下午7 36 22" src="https://user-images.githubusercontent.com/37780284/204409758-09914eb4-4f5b-486f-838e-bd4e6fccc240.png">
-
 
 ## 4. Sample Client Page
 
@@ -254,4 +253,9 @@ JDK version : OpenJDK 1.8.0
 ## 5. Continuous Integration
 
 * We used CircleCI: https://github.com/Fay06/nobug_teamproject/tree/circleci-project-setup
+
+## 6. Static Analysis Bug Finder
+* We use SpotBugs for static analysis bug finder, and below are the analysis after running under /src/main
+
+<img width="800" alt="截屏2022-11-28 下午8 50 32" src="https://user-images.githubusercontent.com/37780284/204418814-367d8787-e247-416b-952a-bcfede87c41b.png">
 
