@@ -232,7 +232,7 @@ JDK version : OpenJDK 1.8.0
       * Test a book's rating, and we expect the related value {ratingID, bookID, rating} returned from the database;
         * e.g. localhost:80/rating/get?bookID=2
       * Test all books under a booklist, and we expect a list of books returned from the database;
-        * e.g. localhost:80/rating/get?bookID=2get/book?bookListID=6
+        * e.g. localhost:80/booklist/get/book?bookListID=6
       * If we input non-existing booklist id, we expect error message.
         * e.g. localhost:80/booklist/get/name?bookListID=0
 
