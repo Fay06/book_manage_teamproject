@@ -22,4 +22,4 @@ workflows:
       - maven/test:
           executor: openjdk11
           pre-steps:
-            - run: "git clone https://github.com/Fay06/nobug_teamproject.git"
+            - run: "ls -la"
