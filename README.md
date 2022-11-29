@@ -114,6 +114,9 @@ JDK version : OpenJDK 1.8.0
     * https://documenter.getpostman.com/view/23968342/2s8YsxvBoe
   * Integration Test:
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/service
+  * End-to-end Test:
+    * For valid token: if we input existing book name, book id or book category, we expect the related value from the database; if we input non-existing book name, book id or book category, we expect error message
+    * For invalid token: no matter what we input, we expect "This token is invalid!"
 
 ## 3. StyleChecker
 
