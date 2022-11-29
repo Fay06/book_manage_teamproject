@@ -24,7 +24,7 @@ public class RatingController {
     public ResponseEntity<Object> searchRating(@RequestParam(value = "bookID", required = true) Integer bookID){
         Rating rating = ratingService.searchRating(bookID);
         List<Book> result = bookService.getBookId(bookID);
-        if (result == null || result.size() == 0){
+        if (result == null || result.isEmpty()){
             return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
         } else if (rating == null) {
             return new ResponseEntity<>("Rating Not Found", HttpStatus.NOT_FOUND);
@@ -37,7 +37,7 @@ public class RatingController {
                           @RequestParam(value = "rating", required = true) Integer rating){
         String message = null;
         List<Book> result = bookService.getBookId(bookID);
-        if (result == null || result.size() == 0){
+        if (result == null || result.isEmpty()){
             return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
         }
         int ratingID = ratingService.addRating(bookID, rating);

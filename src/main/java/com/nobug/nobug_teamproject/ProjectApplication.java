@@ -3,7 +3,6 @@ package com.nobug.nobug_teamproject;
 import com.nobug.nobug_teamproject.security.JWTAuthorizationFilter;
 import com.nobug.nobug_teamproject.service.ClientService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;

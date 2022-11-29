@@ -5,8 +5,6 @@ import com.nobug.nobug_teamproject.models.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ClientService {
     @Autowired

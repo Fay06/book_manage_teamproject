@@ -33,12 +33,12 @@ public class BookController {
         // Determine which specific function to use according to the input parameters
         if (bookID != null){
             result = bookService.getBookId(bookID);
-            if (result == null || result.size() == 0){
+            if (result == null || result.isEmpty()){
                 return new ResponseEntity<>("BookID Not Found", HttpStatus.NOT_FOUND);
             }
         } else if (bookName != null){
             result =  bookService.searchBook(bookName);
-            if (result == null || result.size() == 0){
+            if (result == null || result.isEmpty()){
                 return new ResponseEntity<>("BookName Not Found", HttpStatus.NOT_FOUND);
             }
             if (result.size() > size){
@@ -46,7 +46,7 @@ public class BookController {
             }
         } else if (category != null){
             result =  bookService.searchCategory(category);
-            if (result == null || result.size() == 0){
+            if (result == null || result.isEmpty()){
                 return new ResponseEntity<>("Category Not Found", HttpStatus.NOT_FOUND);
             }
             if (result.size() > size){
@@ -64,7 +64,7 @@ public class BookController {
     @DeleteMapping("delete")
     public ResponseEntity<Object> deleteBookId(@RequestParam(value = "bookID", required = true) Integer bookID) {
         List<Book> result = bookService.getBookId(bookID);
-        if (result == null || result.size() == 0){
+        if (result == null || result.isEmpty()) {
             return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
         } else bookService.deleteBookId(bookID);
         return new ResponseEntity<>("Book Deleted", HttpStatus.OK);
@@ -83,7 +83,7 @@ public class BookController {
                                         @RequestParam(value = "bookName", required = true) String bookName,
                                         @RequestParam(value = "category", required = true) String category){
         List<Book> result = bookService.getBookId(bookID);
-        if (result == null || result.size() == 0){
+        if (result == null || result.isEmpty()){
             return new ResponseEntity<>("Book Not Found", HttpStatus.BAD_REQUEST);
         } else {
             bookService.updateBookName(bookID, bookName);

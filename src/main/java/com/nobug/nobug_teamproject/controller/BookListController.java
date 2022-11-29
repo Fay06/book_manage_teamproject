@@ -20,11 +20,13 @@ public class BookListController {
     @Autowired
     private BookService bookService;
 
+    private String booklistNotFound = "BookList Not Found";
+
     @GetMapping("get/name")
     public ResponseEntity<Object> getBookList(@RequestParam(value = "bookListID", required = true) Integer bookListID){
         BookList result = bookListService.getBookList(bookListID);
         if (result == null) {
-            return new ResponseEntity<>("BookList Not Found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(booklistNotFound, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
@@ -34,8 +36,8 @@ public class BookListController {
         BookList temp = bookListService.getBookList(bookListID);
         List<Book> result = bookListService.getBooksFromBookList(bookListID);
         if (temp == null) {
-            return new ResponseEntity<>("BookList Not Found", HttpStatus.NOT_FOUND);
-        } else if (result.size() == 0) {
+            return new ResponseEntity<>(booklistNotFound, HttpStatus.NOT_FOUND);
+        } else if (result.isEmpty()) {
             return new ResponseEntity<>("BookList Empty", HttpStatus.OK);
         }
         return new ResponseEntity<>(result, HttpStatus.OK);
@@ -52,10 +54,10 @@ public class BookListController {
         } else if (bookListID != null && bookID != null) {
             List<Book> book = bookService.getBookId(bookID);
             BookList booklist = bookListService.getBookList(bookListID);
-            if (book == null || book.size() == 0){
+            if (book == null || book.isEmpty()){
                 return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
             } else if (booklist == null) {
-                return new ResponseEntity<>("BookList Not Found", HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(booklistNotFound, HttpStatus.NOT_FOUND);
             }
             bookListService.addBookToBookList(bookID, bookListID);
         }
@@ -69,15 +71,15 @@ public class BookListController {
         BookList booklist = bookListService.getBookList(bookListID);
         if (bookID != null && bookListID != null) {
             List<Book> book = bookService.getBookId(bookID);
-            if (book == null || book.size() == 0){
+            if (book == null || book.isEmpty()){
                 return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
             } else if (booklist == null) {
-                return new ResponseEntity<>("BookList Not Found", HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(booklistNotFound, HttpStatus.NOT_FOUND);
             }
             bookListService.removeBookFromBookList(bookID, bookListID);
         } else if (bookListID != null) {
             if (booklist == null) {
-                return new ResponseEntity<>("BookList Not Found", HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(booklistNotFound, HttpStatus.NOT_FOUND);
             } else bookListService.deleteBookList(bookListID);
         }
         return new ResponseEntity<>("Deleted", HttpStatus.OK);
@@ -88,7 +90,7 @@ public class BookListController {
                                                 @RequestParam(value = "bookListName", required = true) String bookListName){
         BookList result = bookListService.getBookList(bookListID);
         if (result == null) {
-            return new ResponseEntity<>("BookList Not Found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(booklistNotFound, HttpStatus.NOT_FOUND);
         }
         bookListService.updateBookListName(bookListID, bookListName);
         return new ResponseEntity<>("BookList Updated", HttpStatus.OK);

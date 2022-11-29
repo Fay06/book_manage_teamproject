@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import io.jsonwebtoken.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -19,13 +18,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.nobug.nobug_teamproject.service.ClientService;
-import com.nobug.nobug_teamproject.models.Client;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
-    private final String HEADER = "Authorization";
-    private final String PREFIX = "Bearer ";
-    private final String SECRET = "315f7653-8c7a-4fc5-ac2b-e10f964b746c";
+    private static final  String HEADER = "Authorization";
+    private static final  String PREFIX = "Bearer ";
+    private static final String SECRET = "315f7653-8c7a-4fc5-ac2b-e10f964b746c";
 
     private final ClientService clientService;
 
@@ -36,7 +34,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         try {
-            if (checkJWTToken(request, response)) {
+            if (checkJWTToken(request)) {
                 String jwtToken = request.getHeader(HEADER).replace(PREFIX, "");
                 if (validateToken(jwtToken)) {
                     setUpSpringAuthentication();
@@ -49,8 +47,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             chain.doFilter(request, response);
         } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException e) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN, e.getMessage());
-            return;
+            (response).sendError(HttpServletResponse.SC_FORBIDDEN, e.getMessage());
         }
     }
 
@@ -61,21 +58,14 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             Claims claims = claimsJws.getBody();
             String clientName = claims.get("client").toString();
             String clientNameTemp = null;
-            // Add function HERE
-            System.out.println("clientName");
-            System.out.println(clientName);
+
             try {
                 clientNameTemp = clientService.searchClient(clientName).getClientName();
             } catch (Exception e) {
                 return false;
             }
 
-            System.out.println("clientNameTemp");
-            System.out.println(clientNameTemp);
-
-            if (clientNameTemp.equals(clientName)) {
-                return true;
-            } else return false;
+            return clientNameTemp.equals(clientName);
         } catch (Exception e) {
             return false;
         }
@@ -98,11 +88,9 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     }
 
     // Check if the token exists
-    private boolean checkJWTToken(HttpServletRequest request, HttpServletResponse res) {
+    private boolean checkJWTToken(HttpServletRequest request) {
         String authenticationHeader = request.getHeader(HEADER);
-        if (authenticationHeader == null || !authenticationHeader.startsWith(PREFIX))
-            return false;
-        return true;
+        return (authenticationHeader == null || !authenticationHeader.startsWith(PREFIX));
     }
 
 }
