@@ -1,12 +1,12 @@
 package com.nobug.nobug_teamproject.security;
 
 import io.jsonwebtoken.*;
+import java.util.logging.Logger;
 
-
-public class authentication {
+public class Authentication {
     private static String signature = "315f7653-8c7a-4fc5-ac2b-e10f964b746c";
 
-
+    private static Logger logger = Logger.getLogger(Authentication.class.getName());
     public static void main(String[] args) {
         JwtBuilder jwtBuilder = Jwts.builder();
         String jwtToken = jwtBuilder
@@ -17,6 +17,6 @@ public class authentication {
                 // Sign
                 .signWith(SignatureAlgorithm.HS512, signature)
                 .compact();
-        System.out.println(jwtToken);
+        logger.info(jwtToken);
     }
 }
