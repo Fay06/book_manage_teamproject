@@ -13,11 +13,17 @@
     * `Authentication Failed` (HTTP Status 403 Forbidden)
 * ___Books___
   * `GET /book/get`
-    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=1162'`
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=123'`
     * Request Parameters:
       * `bookID` int(Not necessarily)
       * `bookName` String(Not necessarily)
       * `category` String(Not necessarily)
+      * `size` int(Not necessarily)
+    * Instruction:
+      * Search by `bookID`(default size = 20)
+      * Search by `bookName`(default size = 20)
+      * Search by `category`(default size = 20)
+      * List all Books(with no input and default size = 20)
     * Responses:
       * ```
           {
@@ -29,67 +35,172 @@
       * `BookID Not Found` (HTTP Status 404 Not Found)
       * `BookName Not Found` (HTTP Status 404 Not Found)
       * `Category Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `DELETE /book/delete`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/book/delete?bookID=123
+    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/book/delete?bookID=123'`
     * Request Parameters:
       * `bookID` int(Required)
+    * Instruction:
+      * Delete by `bookID`
+    * Responses: `Book Deleted`
+    * Error Message:
+      * `Book Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `POST /book/add`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/book/add?bookName=test&category=test
+    * Sample Request: `curl --location --request POST 'https://nobug-teamproject.herokuapp.com/book/add?bookName=test&category=test'`
     * Request Parameters:
       * `bookName` String(Required)
       * `category` String(Required)
+    * Instruction:
+      * Add Book with `bookName` and `category`
+    * Responses: `Book Added, Book ID: 123`
+    * Error Message:
+      * `Failed` (HTTP Status 400 Bad Request)
   * `PUT /book/update`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/book/update?bookID=123&bookName=test
+    * Sample Request: `curl --location --request PUT 'https://nobug-teamproject.herokuapp.com/book/update?bookID=123&bookName=test'`
     * Request Parameters:
       * `bookID` int(Required)
       * `bookName` String(Not necessarily)
       * `category` String(Not necessarily)
+    * Instruction:
+      * Update the `bookName` of a specific `bookID`
+      * Update the `category` of a specific `bookID`
+    * Responses:
+      * ```
+          {
+              "bookID": 1162,
+              "bookName": "Applied Human Anatomy",
+              "category": "textbook"
+          }
+    * Error Message:
+      * `Book Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
 
 * ___Rating___
   * `GET /rating/get`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/rating/get?bookID=123
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/rating/get?bookID=123'`
     * Request Parameters:
       * `bookID` int(Required)
+    * Instruction:
+      * Get rating by `bookID`
+    * Responses: `4.2`
+    * Error Message:
+      * `Book Not Found` (HTTP Status 404 Not Found)
+      * `Rating Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `DELETE /rating/delete`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/rating/delete?ratingID=11
+    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/rating/delete?ratingID=11'`
     * Request Parameters:
       * `ratingID` int(Required)
+    * Instruction:
+      * Delete rating by `ratingID`
+    * Responses: `Deleted`
+    * Error Message:
+      * `RatingID Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `POST /rating/add`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/rating/add?bookID=123&rating=5
+    * Sample Request: `curl --location --request POST 'https://nobug-teamproject.herokuapp.com/rating/add?bookID=123&rating=5'`
     * Request Parameters:
       * `bookID` int(Required)
       * `rating` int(Required)
+    * Instruction:
+      * Add a `rating` for `bookID`
+    * Responses: `Rating Added, RatingID: 1792`
+    * Error Message:
+      * `Book Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `PUT /rating/update`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/rating/update?ratingID=11&rating=1
+    * Sample Request: `curl --location --request PUT 'https://nobug-teamproject.herokuapp.com/rating/update?ratingID=11&rating=1'`
     * Request Parameters:
       * `ratingID` int(Required)
       * `rating` int(Required)
+    * Instruction:
+      * Update `rating` of `ratingID`
+    * Responses: `Updated`
+    * Error Message:
+      * `RatingID Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
 
 * ___BookList___
   * `GET /booklist/get/name`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/booklist/get/name?bookListID=2
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/booklist/get/name?bookListID=2'`
     * Request Parameters:
       * `bookListID` int(Required)
+    * Instruction:
+      * Get name of `bookListID`
+    * Responses:
+      * ```
+          {
+              "bookListID": 2,
+              "bookListName": "test5"
+          }
+    * Error Message:
+      * `BookList Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `GET /booklist/get/book`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/booklist/get/book?bookListID=2
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/booklist/get/book?bookListID=2'`
     * Request Parameters:
       * `bookListID` int(Required)
+    * Instruction:
+      * Get all Books in `bookListID`
+    * Responses:
+      * ```
+          [
+              {
+                  "bookID": 652,
+                  "bookName": "Principles of Microeconomics Scarcity and Social Provisioning",
+                  "category": "textbook"
+              },
+              {
+                  "bookID": 789,
+                  "bookName": "Business Computers 365",
+                  "category": "textbook"
+              }
+          ]
+    * Error Message:
+      * `BookList Not Found` (HTTP Status 404 Not Found)
+      * `BookList Empty` (HTTP Status 200 OK)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `DELETE /booklist/delete`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/booklist/delete?bookListID=6&bookID=123
+    * Sample Request: `curl --location --request DELETE 'https://nobug-teamproject.herokuapp.com/booklist/delete?bookListID=6&bookID=123'`
     * Request Parameters:
       * `bookListID` int(Required)
       * `bookID` int(Not necessarily)
+    * Instruction:
+      * Delete `bookID` in `bookListID`
+      * Delete the whole `bookListID`
+    * Responses: `Deleted`
+    * Error Message:
+      * `BookList Not Found` (HTTP Status 404 Not Found)
+      * `Book Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `POST /booklist/add`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/booklist/add?bookListID=6&bookID=789
+    * Sample Request: `curl --location --request POST 'https://nobug-teamproject.herokuapp.com/booklist/add?bookListID=6&bookID=789'`
     * Request Parameters:
       * `bookListID` int(Not necessarily)
       * `bookID` int(Not necessarily)
       * `bookListName` String(Not necessarily)
+    * Instruction:
+      * Add a new booklist with `bookListName`
+      * Add a `bookID` into booklist `bookListID`
+    * Responses:
+      * `BookList Added, BookList ID: 17`
+      * `Book Added to Booklist`
+    * Error Message:
+      * `BookList Not Found` (HTTP Status 404 Not Found)
+      * `Book Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
   * `PUT /booklist/update`
-    * Sample Request: https://nobug-teamproject.herokuapp.com/booklist/update?bookListID=6&bookListName=test2116
+    * Sample Request: `curl --location --request PUT 'https://nobug-teamproject.herokuapp.com/booklist/update?bookListID=6&bookListName=test2116'`
     * Request Parameters:
       * `bookListID` int(Required)
       * `bookListName` String(Required)
+    * Instruction:
+      * Update `bookListName` of `bookListID`
+    * Responses: `BookList Updated`
+    * Error Message:
+      * `BookList Not Found` (HTTP Status 404 Not Found)
+      * `Failed` (HTTP Status 400 Bad Request)
 
 ## 2. Build, Run, Test Instructions
 
