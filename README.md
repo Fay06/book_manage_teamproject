@@ -13,7 +13,7 @@
     * `Authentication Failed` (HTTP Status 403 Forbidden)
 * ___Books___
   * `GET /book/get`
-    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=123'`
+    * Sample Request: `curl --location --request GET 'https://nobug-teamproject.herokuapp.com/book/get?bookID=1162'`
     * Request Parameters:
       * `bookID` int(Not necessarily)
       * `bookName` String(Not necessarily)
