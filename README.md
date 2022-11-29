@@ -238,9 +238,9 @@ JDK version : OpenJDK 1.8.0
 
     * For invalid token: no matter what we input, we expect "This token is invalid!"
 
-## 3. StyleChecker
+## 3. StyleChecker & Static Analysis Bug Finder
 
-* We use SonarLint for style checker, and below are the analysis after running under /src/
+* We use SonarLint for style checker and static analysis bug finder, and below are the analysis after running under /src/
 <img width="800" alt="截屏2022-11-28 下午7 36 22" src="https://user-images.githubusercontent.com/37780284/204409758-09914eb4-4f5b-486f-838e-bd4e6fccc240.png">
 
 
