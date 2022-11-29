@@ -22,5 +22,10 @@ workflows:
       - maven/test:
           executor: openjdk11
           pre-steps:
+            - checkout
             - run: "ls -la"
-            - run: "./mvnw test"
+            - run:
+                    name: "test"
+                    command:
+                      ./mvnw test
+  
