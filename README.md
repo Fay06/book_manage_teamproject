@@ -132,5 +132,5 @@ JDK version : OpenJDK 1.8.0
 
 ## 5. Continuous Integration
 
-* We used CricleCI: https://github.com/Fay06/nobug_teamproject/tree/circleci-project-setup
+* We used CircleCI: https://github.com/Fay06/nobug_teamproject/tree/circleci-project-setup
 
