@@ -243,13 +243,14 @@ JDK version : OpenJDK 1.8.0
 * We use SonarLint for style checker, and below are the analysis after running under /src/
 <img width="800" alt="截屏2022-11-28 下午7 36 22" src="https://user-images.githubusercontent.com/37780284/204409758-09914eb4-4f5b-486f-838e-bd4e6fccc240.png">
 
-## 4. Sample Client Page
-
+## 4. Client
+* We use Retool to develop client
+  * TODO: Add set-up documentation
 * We have implemented below sample client pages: 
-  * valid token1: （two instances of clients using this token)
+  * valid token1: （diff client instances using the same token)
       * https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c
       * https://nobug.retool.com/embedded/public/b0d803f8-e79c-45d3-a801-3e6da43a10ed
-  * valid token2: 
+  * valid token2: (another client using another valid token)
       * https://nobug.retool.com/embedded/public/ac9a8717-ed9e-40dc-a8c3-031c1859f2d3
   * invalid token: 
       * https://nobug.retool.com/embedded/public/ffcee06e-19cf-41fd-88ef-4d9b757dd291
