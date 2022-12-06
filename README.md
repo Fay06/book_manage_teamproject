@@ -246,7 +246,7 @@ JDK version : OpenJDK 1.8.0
 ## 4. Client
 * We use Retool to develop client
   * With Retool, we created various components, e.g. Text, Button, etc. 
-  * We wrote different queries(e.g. findbybookid, findbybookname, etc), and each query can call into our service with its REST request and header. We can get the corresponding response and result code. According to the response or result, we can show in our client components(e.g. table) or call other handlers. 
+  * We wrote different queries(e.g. findbybookid, findbybookname, etc) linked with components, and each query can call into our service with its REST request and header. We can get the corresponding response and result code. According to the response or result, we can show in our client components(e.g. table) or call other handlers. 
   * Example developing process:
   <img width="800" alt="截屏2022-12-05 下午7 08 03" src="https://user-images.githubusercontent.com/37780284/205773583-c8d9e67e-4dd0-4332-b668-719e13f52397.png">
 
