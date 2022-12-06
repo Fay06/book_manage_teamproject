@@ -221,7 +221,7 @@ JDK version : OpenJDK 1.8.0
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/ProjectApplicationTests.java 
   * Unit Test: 
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/unit
-  * System Test: 
+  * System/API Test: 
     * https://documenter.getpostman.com/view/23968342/2s8YsxvBoe
   * Integration Test:
     * nobug_teamproject/src/test/java/com/nobug/nobug_teamproject/service
@@ -265,8 +265,12 @@ JDK version : OpenJDK 1.8.0
 ## 5. Continuous Integration
 
 * We used CircleCI: https://app.circleci.com/pipelines/github/Fay06
-* Example report:
-<img width="800" alt="截屏2022-11-28 下午8 58 06" src="https://user-images.githubusercontent.com/37780284/204419707-f9a5c429-1648-40ff-8b01-a5d98d71977f.png">
+* Example whole CI report:
+<img width="800" alt="截屏2022-12-06 下午5 16 11" src="https://user-images.githubusercontent.com/37780284/206036189-a20b7d15-c3f4-43e8-9538-a49c4f723b50.png">
+* Our CI automatically runs unit, integration, API tests. You can find their reports on "Run Tests" section in the CI report. Example test CI report:
+<img width="800" alt="截屏2022-12-06 下午5 27 56" src="https://user-images.githubusercontent.com/37780284/206037615-4dd9ab9c-8b51-4462-b86d-208dd3fb1d80.png">
+
+
 
 ## 6. Static Analysis Bug Finder
 * We use SpotBugs for static analysis bug finder, and below are the analysis after running under /src/main
