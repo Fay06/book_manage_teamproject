@@ -3,17 +3,20 @@ package com.nobug.nobug_teamproject.service;
 import com.nobug.nobug_teamproject.models.Rating;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class RatingServiceTest {
+public class RatingServiceTest {
 
     @Autowired
     RatingService ratingService;
@@ -27,7 +30,7 @@ class RatingServiceTest {
     }
 
     @Test
-    void searchRating() {
+    public void searchRating() {
         double ratingResult = 5.0;
         Rating searchResult = ratingService.searchRating(1025);
         assertEquals(ratingResult, searchResult.getRating());
@@ -35,7 +38,7 @@ class RatingServiceTest {
 
     @Test
     @Transactional
-    void addRating() {
+    public void addRating() {
         ratingService.addRating(4, 5);
         double ratingResult = 5.0;
         Rating searchResult = ratingService.searchRating(4);
@@ -44,7 +47,7 @@ class RatingServiceTest {
 
     @Test
     @Transactional
-    void deleteRating() {
+    public void deleteRating() {
         ratingService.deleteRating(23);
         Rating searchResult = ratingService.searchRating(3);
         assertNull(searchResult);
@@ -52,7 +55,7 @@ class RatingServiceTest {
 
     @Test
     @Transactional
-    void updateRating() {
+    public void updateRating() {
         Rating previousRes = ratingService.searchRating(3);
         ratingService.updateRating(23, 1);
         Rating afterRes = ratingService.searchRating(3);

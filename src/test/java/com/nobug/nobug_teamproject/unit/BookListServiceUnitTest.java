@@ -7,7 +7,7 @@ import com.nobug.nobug_teamproject.service.BookListService;
 import com.nobug.nobug_teamproject.mapper.BookListMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class BookListServiceUnitTest {
+public class BookListServiceUnitTest {
     @Autowired
     private BookListService bookListService;
 
@@ -31,7 +31,7 @@ class BookListServiceUnitTest {
     private BookListMapper bookListMapper;
 
     @Test
-    void testGetBookList() {
+    public void testGetBookList() {
         int testBookListID = 1000;
 
         BookList bookList = new BookList(testBookListID, "mock booklist");
@@ -42,7 +42,7 @@ class BookListServiceUnitTest {
     }
 
     @Test
-    void testDeleteBookList() {
+    public void testDeleteBookList() {
         int testBookListID = 1000;
 
         BookList bookList = new BookList(testBookListID, "a booklist");
@@ -56,7 +56,7 @@ class BookListServiceUnitTest {
     }
 
     @Test
-    void testUpdateBookList() {
+    public void testUpdateBookList() {
         int testBookListID = 1000;
         String testBookListName = "booklist1";
         String changeBookListName = "booklist2";
@@ -71,7 +71,7 @@ class BookListServiceUnitTest {
     }
 
     @Test
-    void testRemoveBookFromBookList() {
+    public void testRemoveBookFromBookList() {
         int testBookListID = 1000;
         int testBookId = 2222;
         String testBookListName = "booklist1";
@@ -88,7 +88,7 @@ class BookListServiceUnitTest {
     }
 
     @Test
-    void testAddBookToBookList() {
+    public void testAddBookToBookList() {
         int testBookListID = 1000;
         int testBookId = 2222;
         String testBookListName = "booklist1";
@@ -105,7 +105,7 @@ class BookListServiceUnitTest {
     }
 
     @Test
-    void testGetBooksFromBookList() {
+    public void testGetBooksFromBookList() {
         int testBookListID = 1000;
         int testBookId = 2222;
         String testBookListName = "booklist1";

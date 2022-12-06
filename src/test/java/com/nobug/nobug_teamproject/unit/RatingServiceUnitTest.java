@@ -3,7 +3,7 @@ package com.nobug.nobug_teamproject.unit;
 import com.nobug.nobug_teamproject.mapper.RatingMapper;
 import com.nobug.nobug_teamproject.models.Rating;
 import com.nobug.nobug_teamproject.service.RatingService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class RatingServiceUnitTest {
+public class RatingServiceUnitTest {
     @Autowired
     private RatingService ratingService;
 
@@ -24,7 +24,7 @@ class RatingServiceUnitTest {
     private RatingMapper ratingMapper;
 
     @Test
-    void testSearchRating() {
+    public void testSearchRating() {
         int testBookID = 1025;
 
         Rating rating = new Rating(testBookID, 5.0);
@@ -35,7 +35,7 @@ class RatingServiceUnitTest {
     }
 
     @Test
-    void testSearch() {
+    public void testSearch() {
         int testRatingID = 23;
 
         Rating rating = new Rating(testRatingID, 3, 5);
@@ -47,7 +47,7 @@ class RatingServiceUnitTest {
 
     @Test
     @Transactional
-    void testDeleteRating() {
+    public void testDeleteRating() {
         int testRatingID = 23;
 
         Mockito.doNothing().when(ratingMapper).deleteRating(testRatingID);
@@ -59,7 +59,7 @@ class RatingServiceUnitTest {
 
     @Test
     @Transactional
-    void testUpdateRating() {
+    public void testUpdateRating() {
         int testRatingID = 23;
 
         int changeRating = 3;

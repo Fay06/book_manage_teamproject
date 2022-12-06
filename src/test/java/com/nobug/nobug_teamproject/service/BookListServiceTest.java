@@ -4,17 +4,19 @@ import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.models.BookList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class BookListServiceTest {
+public class BookListServiceTest {
     @Autowired
     BookListService bookListService;
     @BeforeEach
@@ -26,14 +28,14 @@ class BookListServiceTest {
     }
 
     @Test
-    void getBookList() {
+    public void getBookList() {
         String name = bookListService.getBookList(3).getBookListName();
         assertEquals("my_wishlist", name);
     }
 
     @Test
     @Transactional
-    void deleteBookList() {
+    public void deleteBookList() {
         bookListService.deleteBookList(7);
         BookList booklist = bookListService.getBookList(7);
         assertNull(booklist);
@@ -41,7 +43,7 @@ class BookListServiceTest {
 
     @Test
     @Transactional
-    void addBookList() {
+    public void addBookList() {
         int bookListID = bookListService.addBookList("unit test");
         String name = bookListService.getBookList(bookListID).getBookListName();
         assertEquals("unit test", name);
@@ -49,7 +51,7 @@ class BookListServiceTest {
 
     @Test
     @Transactional
-    void updateBookListName() {
+    public void updateBookListName() {
         bookListService.updateBookListName(7, "hellooo");
         String name = bookListService.getBookList(7).getBookListName();
         assertEquals("hellooo", name);
@@ -57,7 +59,7 @@ class BookListServiceTest {
 
     @Test
     @Transactional
-    void addBookToBookList() {
+    public void addBookToBookList() {
         bookListService.addBookToBookList(2, 7);
         List<Book> books = bookListService.getBooksFromBookList(7);
         boolean found = false;
@@ -72,7 +74,7 @@ class BookListServiceTest {
 
     @Test
     @Transactional
-    void removeBookFromBookList() {
+    public void removeBookFromBookList() {
         bookListService.removeBookFromBookList(981, 6);
         List<Book> books = bookListService.getBooksFromBookList(6);
         boolean found = false;
@@ -86,7 +88,7 @@ class BookListServiceTest {
     }
 
     @Test
-    void getBooksFromBookList() {
+    public void getBooksFromBookList() {
         List<Book> books = bookListService.getBooksFromBookList(6);
         assertNotEquals(0, books.size());
     }

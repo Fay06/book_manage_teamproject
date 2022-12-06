@@ -4,7 +4,7 @@ package com.nobug.nobug_teamproject.unit;
 import com.nobug.nobug_teamproject.mapper.BookMapper;
 import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.service.BookService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class BookServiceUnitTest {
+public class BookServiceUnitTest {
 
     @Autowired
     private BookService bookService;
@@ -28,7 +28,7 @@ class BookServiceUnitTest {
     private BookMapper bookMapper;
 
     @Test
-    void testGetBook() {
+    public void testGetBook() {
         int testBookID = 1000;
         Book book = new Book(testBookID, "mock book", "mock category");
         List<Book> books = new ArrayList<>();
@@ -40,7 +40,7 @@ class BookServiceUnitTest {
     }
 
     @Test
-    void testGetBookID() {
+    public void testGetBookID() {
         int testBookID = 1000;
         Book book = new Book(testBookID, "mock book", "mock category");
         List<Book> books = new ArrayList<>();
@@ -52,7 +52,7 @@ class BookServiceUnitTest {
     }
 
     @Test
-    void testGetBookCategory() {
+    public void testGetBookCategory() {
         int testBookID = 1000;
         Book book = new Book(testBookID, "mock book", "mock category");
         List<Book> books = new ArrayList<>();
@@ -64,7 +64,7 @@ class BookServiceUnitTest {
     }
 
     @Test
-    void testDeleteBook() {
+    public void testDeleteBook() {
         int testBookID = 1000;
         Book book = new Book(testBookID, "mock book", "mock category");
 
@@ -76,7 +76,7 @@ class BookServiceUnitTest {
     }
 
     @Test
-    void testUpdateBookName() {
+    public void testUpdateBookName() {
         int testBookID = 1000;
         String bookNewName = "new name";
         Book book = new Book(testBookID, "mock book", "mock category");
@@ -89,7 +89,7 @@ class BookServiceUnitTest {
     }
 
     @Test
-    void testUpdateBookCategory() {
+    public void testUpdateBookCategory() {
         int testBookID = 1000;
         String bookNewCategory = "new category";
         Book book = new Book(testBookID, "mock book", "new category");

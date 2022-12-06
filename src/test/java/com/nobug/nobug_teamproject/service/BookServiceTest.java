@@ -4,17 +4,20 @@ import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.models.BookList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class BookServiceTest {
+public class BookServiceTest {
 
     @Autowired
     BookService bookService;
@@ -29,7 +32,7 @@ class BookServiceTest {
 
     @Test
     @Transactional
-    void searchBook() {
+    public void searchBook() {
         List<Book> books = bookService.searchBook("Leading Innovation");
         boolean found = false;
         for (int i = 0; i < books.size(); i++)
@@ -43,7 +46,7 @@ class BookServiceTest {
 
     @Test
     @Transactional
-    void searchCategory() {
+    public void searchCategory() {
         List<Book> books = bookService.searchCategory("textbook");
         boolean found = false;
         if (books.get(0).getCategory() != null) {
@@ -54,7 +57,7 @@ class BookServiceTest {
 
     @Test
     @Transactional
-    void getBookId() {
+    public void getBookId() {
         List<Book> books = bookService.getBookId(1117);
         boolean found = false;
         for (int i = 0; i < books.size(); i++)
@@ -68,7 +71,7 @@ class BookServiceTest {
 
     @Test
     @Transactional
-    void deleteBookId() {
+    public void deleteBookId() {
         bookService.deleteBookId(1117);
         List<Book> searchResult = bookService.getBookId(1117);
         List<Book> expectResult = new ArrayList<>();
@@ -77,7 +80,7 @@ class BookServiceTest {
 
     @Test
     @Transactional
-    void addBook() {
+    public void addBook() {
         bookService.addBook("unit test", "unit test");
         List<Book> books = bookService.searchBook("unit test");
         boolean found = false;
@@ -92,7 +95,7 @@ class BookServiceTest {
 
     @Test
     @Transactional
-    void updateBookName() {
+    public void updateBookName() {
         bookService.updateBookName(1117, "unit test");
         List<Book> books = bookService.getBookId(1117);
         boolean found = false;
@@ -107,7 +110,7 @@ class BookServiceTest {
 
     @Test
     @Transactional
-    void updateCategory() {
+    public void updateCategory() {
         bookService.updateCategory(1117, "unit test");
         List<Book> books = bookService.getBookId(1117);
         boolean found = false;
