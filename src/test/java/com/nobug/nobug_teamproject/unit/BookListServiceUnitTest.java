@@ -108,14 +108,20 @@ public class BookListServiceUnitTest {
     public void testGetBooksFromBookList() {
         int testBookListID = 1000;
         int testBookId = 2222;
-        String testBookListName = "booklist1";
-        String testBookName = "book1";
+        String testBookListName = "booklist";
+        String testBookName = "book";
         String testBookCategory = "textbook";
         BookList bookList = new BookList(testBookListID, testBookListName);
 
         Book book = new Book(testBookId, testBookName, testBookCategory);
+        Book book2 = new Book(testBookId+1, testBookName, testBookCategory);
+        Book book3 = new Book(testBookId+2, testBookName, testBookCategory);
+        Book book4 = new Book(testBookId+3, testBookName, testBookCategory);
         List<Book> books = new ArrayList<Book>();
         books.add(book);
+        books.add(book2);
+        books.add(book3);
+        books.add(book4);
 
         Mockito.when(bookListMapper.getBooksFromBookList(testBookListID)).thenReturn(books);
 
