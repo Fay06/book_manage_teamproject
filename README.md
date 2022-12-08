@@ -250,15 +250,16 @@ JDK version : OpenJDK 1.8.0
   * We can add authorized token for clients in queires' "Header Authorization" (attached example below)
   * Reference for retool develop guide: https://docs.retool.com/docs
   * Example developing process:
-  <img width="800" alt="截屏2022-12-05 下午7 08 03" src="https://user-images.githubusercontent.com/37780284/205773583-c8d9e67e-4dd0-4332-b668-719e13f52397.png">
+<img width="800" alt="截屏2022-12-08 上午1 14 31" src="https://user-images.githubusercontent.com/37780284/206373675-9ac5bed9-270e-43f3-b8d0-1dfaf8c2c17f.png">
+
 
 
 * We have implemented below sample client pages: 
   * valid token1: （diff client instances using the same token)
       * https://nobug.retool.com/embedded/public/776b48c5-a3ff-49a7-80cf-22baab79a25c
-      * https://nobug.retool.com/embedded/public/b0d803f8-e79c-45d3-a801-3e6da43a10ed
+      * https://nobug.retool.com/embedded/public/51283910-8a1e-4a4e-a5ee-9a416f7aa6d3
   * valid token2: (another client using another valid token)
-      * https://nobug.retool.com/embedded/public/ac9a8717-ed9e-40dc-a8c3-031c1859f2d3
+      * https://nobug.retool.com/embedded/public/259de960-9886-410d-9a2a-3af002d9c816
   * invalid token: 
       * https://nobug.retool.com/embedded/public/ffcee06e-19cf-41fd-88ef-4d9b757dd291
 
