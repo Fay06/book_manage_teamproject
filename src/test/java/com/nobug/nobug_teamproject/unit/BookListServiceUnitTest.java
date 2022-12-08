@@ -4,15 +4,11 @@ import com.nobug.nobug_teamproject.mapper.BookListMapper;
 import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.models.BookList;
 import com.nobug.nobug_teamproject.service.BookListService;
-import com.nobug.nobug_teamproject.mapper.BookListMapper;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -74,8 +70,8 @@ public class BookListServiceUnitTest {
     public void testRemoveBookFromBookList() {
         int testBookListID = 1000;
         int testBookId = 2222;
-        String testBookListName = "booklist1";
-        String testBookName = "book1";
+        String testBookListName = "booklist";
+        String testBookName = "book";
         String testBookCategory = "textbook";
         BookList bookList = new BookList(testBookListID, testBookListName);
         Book book = new Book(testBookId, testBookName, testBookCategory);
@@ -91,8 +87,8 @@ public class BookListServiceUnitTest {
     public void testAddBookToBookList() {
         int testBookListID = 1000;
         int testBookId = 2222;
-        String testBookListName = "booklist1";
-        String testBookName = "book1";
+        String testBookListName = "booklist";
+        String testBookName = "book";
         String testBookCategory = "textbook";
         BookList bookList = new BookList(testBookListID, testBookListName);
         Book book = new Book(testBookId, testBookName, testBookCategory);
