@@ -81,12 +81,12 @@ public class BookServiceTest {
     @Test
     @Transactional
     public void addBook() {
-        bookService.addBook("unit test", "unit test");
-        List<Book> books = bookService.searchBook("unit test");
+        bookService.addBook("int test", "int test");
+        List<Book> books = bookService.searchBook("int test");
         boolean found = false;
         for (int i = 0; i < books.size(); i++)
         {
-            if (books.get(i).getBookName().equals("unit test")) {
+            if (books.get(i).getBookName().equals("int test")) {
                 found = true;
             }
         }
@@ -96,12 +96,12 @@ public class BookServiceTest {
     @Test
     @Transactional
     public void updateBookName() {
-        bookService.updateBookName(1117, "unit test");
+        bookService.updateBookName(1117, "int test");
         List<Book> books = bookService.getBookId(1117);
         boolean found = false;
         for (int i = 0; i < books.size(); i++)
         {
-            if (books.get(i).getBookName().equals("unit test")) {
+            if (books.get(i).getBookName().equals("int test")) {
                 found = true;
             }
         }
@@ -111,12 +111,12 @@ public class BookServiceTest {
     @Test
     @Transactional
     public void updateCategory() {
-        bookService.updateCategory(1117, "unit test");
+        bookService.updateCategory(1117, "int test");
         List<Book> books = bookService.getBookId(1117);
         boolean found = false;
         for (int i = 0; i < books.size(); i++)
         {
-            if (books.get(i).getCategory().equals("unit test")) {
+            if (books.get(i).getCategory().equals("int test")) {
                 found = true;
             }
         }
