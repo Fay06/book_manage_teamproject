@@ -40,6 +40,9 @@ public class RatingController {
         if (result == null || result.isEmpty()){
             return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
         }
+        if (rating < 0 || rating > 5) {
+            return new ResponseEntity<>("Rating should be from 0 to 5 inclusively", HttpStatus.BAD_REQUEST);
+        }
         int ratingID = ratingService.addRating(bookID, rating);
         message = "Rating Added, RatingID: " + ratingID;
         return new ResponseEntity<>(message, HttpStatus.OK);
