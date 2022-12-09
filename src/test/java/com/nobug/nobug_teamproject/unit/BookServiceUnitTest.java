@@ -38,9 +38,9 @@ public class BookServiceUnitTest {
         books.add(book2);
         books.add(book3);
 
-        Mockito.when(bookMapper.getBookId(testBookID)).thenReturn(books);
+        Mockito.when(bookMapper.searchBook("mock book")).thenReturn(books);
 
-        assertEquals("mock book", (bookService.getBookId(testBookID)).get(0).getBookName());
+        assertEquals("mock book", (bookService.searchBook("mock book")).get(0).getBookName());
     }
 
     @Test
@@ -66,9 +66,9 @@ public class BookServiceUnitTest {
         books.add(book2);
         books.add(book3);
 
-        Mockito.when(bookMapper.getBookId(testBookID)).thenReturn(books);
+        Mockito.when(bookMapper.searchCategory("mock category")).thenReturn(books);
 
-        assertEquals("mock category", (bookService.getBookId(testBookID)).get(0).getCategory());
+        assertEquals("mock category", (bookService.searchCategory("mock category")).get(0).getCategory());
     }
 
     @Test
