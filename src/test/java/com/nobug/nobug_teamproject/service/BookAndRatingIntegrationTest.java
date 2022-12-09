@@ -23,7 +23,7 @@ public class BookAndRatingIntegrationTest {
     RatingService ratingService;
 
     static int bookID;
-    static double result;
+    static int result;
 
     @Test
     public void addBook() {
@@ -44,8 +44,9 @@ public class BookAndRatingIntegrationTest {
         Random r = new Random();
         for (int i = 0; i < 10; i++){
             int temp = r.nextInt(5)+1;
-            ratingService.addRating(bookID, temp);
+            int ratingID = ratingService.addRating(bookID, temp);
             result += temp;
+            assertTrue(ratingID >= 0);
         }
     }
 

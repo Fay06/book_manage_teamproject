@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @FixMethodOrder(MethodSorters.JVM)
-public class AddNewBookToBookListTest {
+public class BookAndBooklistIntTest {
     @Autowired
     BookListService bookListService;
     @Autowired
