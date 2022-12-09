@@ -1,7 +1,6 @@
 package com.nobug.nobug_teamproject.service;
 
 import com.nobug.nobug_teamproject.models.Book;
-import com.nobug.nobug_teamproject.models.BookList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;

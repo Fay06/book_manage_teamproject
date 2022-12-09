@@ -30,9 +30,13 @@ public class BookServiceUnitTest {
     @Test
     public void testGetBook() {
         int testBookID = 1000;
-        Book book = new Book(testBookID, "mock book", "mock category");
+        Book book1 = new Book(testBookID, "mock book", "mock category");
+        Book book2 = new Book(testBookID+1, "mock book", "mock category");
+        Book book3 = new Book(testBookID+2, "mock book", "mock category");
         List<Book> books = new ArrayList<>();
-        books.add(book);
+        books.add(book1);
+        books.add(book2);
+        books.add(book3);
 
         Mockito.when(bookMapper.getBookId(testBookID)).thenReturn(books);
 
@@ -54,9 +58,13 @@ public class BookServiceUnitTest {
     @Test
     public void testGetBookCategory() {
         int testBookID = 1000;
-        Book book = new Book(testBookID, "mock book", "mock category");
+        Book book1 = new Book(testBookID, "mock book", "mock category");
+        Book book2 = new Book(testBookID+1, "mock book", "mock category");
+        Book book3 = new Book(testBookID+2, "mock book", "mock category");
         List<Book> books = new ArrayList<>();
-        books.add(book);
+        books.add(book1);
+        books.add(book2);
+        books.add(book3);
 
         Mockito.when(bookMapper.getBookId(testBookID)).thenReturn(books);
 
