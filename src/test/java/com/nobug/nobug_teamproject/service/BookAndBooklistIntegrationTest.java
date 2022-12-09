@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BookAndBooklistIntegrationTest {
     @Autowired
     BookListService bookListService;
@@ -38,7 +39,7 @@ public class BookAndBooklistIntegrationTest {
     }
 
     @Test
-    public void addNewBook() {
+    public void test1addNewBook() {
         this.bookID = bookService.addBook("New Book", "testbook");
         List<Book> books = bookService.getBookId(bookID);
         boolean found = false;
@@ -52,14 +53,14 @@ public class BookAndBooklistIntegrationTest {
     }
 
     @Test
-    public void addNewBookList() {
+    public void test2addNewBookList() {
         this.bookListID = bookListService.addBookList("New BookList");
         String name = bookListService.getBookList(bookListID).getBookListName();
         assertEquals("New BookList", name);
     }
 
     @Test
-    public void addNewBookToBookList() {
+    public void test3addNewBookToBookList() {
         bookListService.addBookToBookList(this.bookID, this.bookListID);
         List<Book> books = bookListService.getBooksFromBookList(bookListID);
         boolean found = false;
@@ -73,7 +74,7 @@ public class BookAndBooklistIntegrationTest {
     }
 
     @Test
-    public void deleteNewBook() {
+    public void test4deleteNewBook() {
         bookService.deleteBookId(this.bookID);
         List<Book> searchResult = bookService.getBookId(bookID);
         List<Book> expectResult = new ArrayList<>();
@@ -81,7 +82,7 @@ public class BookAndBooklistIntegrationTest {
     }
 
     @Test
-    public void deleteNewBookList() {
+    public void test5deleteNewBookList() {
         bookListService.deleteBookList(this.bookListID);
         System.out.print(this.bookListID);
         BookList booklist = bookListService.getBookList(bookListID);

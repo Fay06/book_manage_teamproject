@@ -2,8 +2,10 @@ package com.nobug.nobug_teamproject.service;
 
 import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.models.Rating;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BookAndRatingIntegrationTest {
     @Autowired
     BookService bookService;
@@ -26,7 +29,7 @@ public class BookAndRatingIntegrationTest {
     static int result;
 
     @Test
-    public void addBook() {
+    public void test1AddBook() {
         bookID = bookService.addBook("Test for Rating", "test");
         List<Book> books = bookService.getBookId(bookID);
         boolean found = false;
@@ -40,7 +43,7 @@ public class BookAndRatingIntegrationTest {
     }
 
     @Test
-    public void addRating() {
+    public void test2AddRating() {
         Random r = new Random();
         for (int i = 0; i < 10; i++){
             int temp = r.nextInt(5)+1;
@@ -51,7 +54,7 @@ public class BookAndRatingIntegrationTest {
     }
 
     @Test
-    public void checkResult(){
+    public void test3CheckResult(){
         result = result/10;
         Rating searchResult = ratingService.searchRating(bookID);
         assertEquals(result, searchResult.getRating());
