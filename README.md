@@ -269,7 +269,8 @@ JDK version : OpenJDK 1.8.0
 * Example whole CI report:
 <img width="800" alt="截屏2022-12-06 下午5 16 11" src="https://user-images.githubusercontent.com/37780284/206036189-a20b7d15-c3f4-43e8-9538-a49c4f723b50.png">
 * Our CI automatically runs unit, integration, API tests. You can find their reports on "Run Tests" section in the CI report. Example test CI report:
-<img width="800" alt="截屏2022-12-06 下午5 27 56" src="https://user-images.githubusercontent.com/37780284/206037615-4dd9ab9c-8b51-4462-b86d-208dd3fb1d80.png">
+<img width="800" alt="截屏2022-12-09 上午12 28 32" src="https://user-images.githubusercontent.com/37780284/206630975-8f052ed6-815a-47b9-81f5-7f1ce84c5270.png">
+
 
 
 
