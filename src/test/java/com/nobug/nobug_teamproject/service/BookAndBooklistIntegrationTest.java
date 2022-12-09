@@ -76,7 +76,6 @@ public class BookAndBooklistIntegrationTest {
     @Test
     public void deleteNewBook() {
         bookService.deleteBookId(this.bookID);
-        System.out.print(this.bookID);
         List<Book> searchResult = bookService.getBookId(bookID);
         List<Book> expectResult = new ArrayList<>();
         assertEquals(expectResult, searchResult);
