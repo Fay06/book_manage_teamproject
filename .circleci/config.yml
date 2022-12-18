@@ -21,6 +21,5 @@ workflows:
     jobs:
       - maven/test:
           executor: openjdk11
-          pre-steps:
-            - checkout
-            - run: "./mvnw test"
+          
+            

@@ -1,4 +1,6 @@
 # Nobug Team Project
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Fay06/nobug_teamproject/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Fay06/nobug_teamproject/tree/main)
+
 *(We have deployed this to heroku, link: https://nobug-teamproject.herokuapp.com/)*
 
 #### Team Member:
