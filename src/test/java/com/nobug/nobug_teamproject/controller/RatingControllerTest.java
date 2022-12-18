@@ -4,10 +4,12 @@ import com.nobug.nobug_teamproject.service.BookService;
 import com.nobug.nobug_teamproject.service.ClientService;
 import com.nobug.nobug_teamproject.service.RatingService;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -19,9 +21,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc(addFilters = false)
-class RatingControllerTest {
+public class RatingControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
@@ -46,7 +49,7 @@ class RatingControllerTest {
     }
 
     @Test
-    void searchRatingSuccess() throws Exception {
+    public void searchRatingSuccess() throws Exception {
         String expectedRes = "{\"ratingID\":0,\"bookID\":2,\"rating\":3.0}";
         MvcResult res = mockMvc.perform(get("/rating/get")
                 .param("bookID", "2")
@@ -55,7 +58,7 @@ class RatingControllerTest {
     }
 
     @Test
-    void searchRatingBookNotFound() throws Exception {
+    public void searchRatingBookNotFound() throws Exception {
         MvcResult res = mockMvc.perform(get("/rating/get")
                 .param("bookID", "0")
         ).andDo(print()).andExpect(status().isNotFound()).andReturn();
@@ -63,7 +66,7 @@ class RatingControllerTest {
     }
 
     @Test
-    void searchRatingRatingNotFound() throws Exception {
+    public void searchRatingRatingNotFound() throws Exception {
         MvcResult res = mockMvc.perform(get("/rating/get")
                 .param("bookID", "6")
         ).andDo(print()).andExpect(status().isNotFound()).andReturn();
@@ -72,7 +75,7 @@ class RatingControllerTest {
 
     @Test
     @Transactional
-    void addRatingSuccess() throws Exception {
+    public void addRatingSuccess() throws Exception {
         mockMvc.perform(post("/rating/add")
                 .param("bookID", "2")
                 .param("rating", "3")
@@ -81,7 +84,7 @@ class RatingControllerTest {
 
     @Test
     @Transactional
-    void addRatingBookNotFound() throws Exception {
+    public void addRatingBookNotFound() throws Exception {
         MvcResult res = mockMvc.perform(post("/rating/add")
                 .param("bookID", "0")
                 .param("rating", "3")
@@ -91,7 +94,7 @@ class RatingControllerTest {
 
     @Test
     @Transactional
-    void addRatingRatingInvalid() throws Exception {
+    public void addRatingRatingInvalid() throws Exception {
         MvcResult res = mockMvc.perform(post("/rating/add")
                 .param("bookID", "2")
                 .param("rating", "6")
@@ -101,7 +104,7 @@ class RatingControllerTest {
 
     @Test
     @Transactional
-    void deleteRatingSuccess() throws Exception {
+    public void deleteRatingSuccess() throws Exception {
         MvcResult res = mockMvc.perform(delete("/rating/delete")
                 .param("ratingID", "1")
         ).andDo(print()).andExpect(status().isOk()).andReturn();
@@ -110,7 +113,7 @@ class RatingControllerTest {
 
     @Test
     @Transactional
-    void deleteRatingNotFound() throws Exception {
+    public void deleteRatingNotFound() throws Exception {
         MvcResult res = mockMvc.perform(delete("/rating/delete")
                 .param("ratingID", "0")
         ).andDo(print()).andExpect(status().isNotFound()).andReturn();
@@ -119,7 +122,7 @@ class RatingControllerTest {
 
     @Test
     @Transactional
-    void updateRatingSuccess() throws Exception {
+    public void updateRatingSuccess() throws Exception {
         MvcResult res = mockMvc.perform(put("/rating/update")
                 .param("ratingID", "1")
                 .param("rating", "5")
@@ -129,7 +132,7 @@ class RatingControllerTest {
 
     @Test
     @Transactional
-    void updateRatingNotFound() throws Exception {
+    public void updateRatingNotFound() throws Exception {
         MvcResult res = mockMvc.perform(put("/rating/update")
                 .param("ratingID", "0")
                 .param("rating", "5")
