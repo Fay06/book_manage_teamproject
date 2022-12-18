@@ -1,7 +1,9 @@
-package com.nobug.nobug_teamproject.service;
+package com.nobug.nobug_teamproject.integration;
 
 import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.models.Rating;
+import com.nobug.nobug_teamproject.service.BookService;
+import com.nobug.nobug_teamproject.service.RatingService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,9 @@
-package com.nobug.nobug_teamproject.service;
+package com.nobug.nobug_teamproject.integration;
 
 import com.nobug.nobug_teamproject.models.Book;
 import com.nobug.nobug_teamproject.models.BookList;
+import com.nobug.nobug_teamproject.service.BookListService;
+import com.nobug.nobug_teamproject.service.BookService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
