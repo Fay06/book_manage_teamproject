@@ -84,7 +84,7 @@ public class BookController {
                                         @RequestParam(value = "category", required = true) String category){
         List<Book> result = bookService.getBookId(bookID);
         if (result == null || result.isEmpty()){
-            return new ResponseEntity<>("Book Not Found", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Book Not Found", HttpStatus.NOT_FOUND);
         } else {
             bookService.updateBookName(bookID, bookName);
             bookService.updateCategory(bookID, category);
