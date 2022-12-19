@@ -29,8 +29,8 @@ public class BookListServiceTest {
 
     @Test
     public void getBookList() {
-        String name = bookListService.getBookList(3).getBookListName();
-        assertEquals("my_wishlist", name);
+        String name = bookListService.getBookList(50).getBookListName();
+        assertEquals("int test", name);
     }
 
     @Test

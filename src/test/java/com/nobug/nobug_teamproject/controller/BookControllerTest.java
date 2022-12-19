@@ -109,6 +109,29 @@ public class BookControllerTest {
     }
 
     @Test
+    public void searchBookNameSizeOK() throws Exception {
+        MvcResult res = mockMvc.perform(get("/book/get")
+                .param("size", "5")
+                .param("bookName", "Test for Rating")
+        ).andDo(print()).andExpect(status().isOk()).andReturn();
+    }
+
+    @Test
+    public void searchBookCategorySizeOK() throws Exception {
+        MvcResult res = mockMvc.perform(get("/book/get")
+                .param("size", "5")
+                .param("category", "test")
+        ).andDo(print()).andExpect(status().isOk()).andReturn();
+    }
+
+    @Test
+    public void searchAllBookSizeOK() throws Exception {
+        MvcResult res = mockMvc.perform(get("/book/get")
+                .param("size", "5")
+        ).andDo(print()).andExpect(status().isOk()).andReturn();
+    }
+
+    @Test
     @Transactional
     public void addBookSuccess() throws Exception {
         mockMvc.perform(post("/book/add")
