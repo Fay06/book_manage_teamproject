@@ -252,7 +252,8 @@ JDK version : OpenJDK 1.8.0
   * We can add authorized token for clients in queires' "Header Authorization" (attached example below)
   * Reference for retool develop guide: https://docs.retool.com/docs
   * Example developing process:
-<img width="800" alt="截屏2022-12-08 上午1 14 31" src="https://user-images.githubusercontent.com/37780284/206373675-9ac5bed9-270e-43f3-b8d0-1dfaf8c2c17f.png">
+
+<img width="1114" alt="Screen Shot 2022-12-18 at 9 34 24 PM" src="https://user-images.githubusercontent.com/55329701/208336577-3fe58a49-f9c1-4b3a-af31-3011233fee8f.png">
 
 
 
