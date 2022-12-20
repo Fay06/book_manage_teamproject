@@ -30,7 +30,7 @@ public class RatingServiceTest {
 
     @Test
     public void search() {
-        double ratingResult = 1.0;
+        double ratingResult = 5.0;
         Rating searchResult = ratingService.search(1);
         assertEquals(ratingResult, searchResult.getRating());
     }
